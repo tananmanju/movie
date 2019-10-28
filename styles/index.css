@@ -1,0 +1,130 @@
+body, html {
+    margin: 0;
+}
+
+
+.container {
+    margin: 0 100px;
+}
+
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    margin: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.slider::-webkit-scrollbar {
+    display: none;
+}
+
+.slider .slide {
+    display: flex;
+    position: relative;
+    left: 0;
+    transition: 0.3s left ease-in-out;
+}
+
+.slider .item {
+    margin-right: 10px;
+}
+
+.slider .item img {
+    width: 300px;
+    height: 350px;
+}
+
+.slider .item .details {
+    margin: 0 20px;
+}
+
+.slider .item .title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.slider .item .title i {
+    font-size: 2em;
+    margin-top: 0.5em;;
+}
+
+.slider .item:last-child {
+    margin-right: 0;
+}
+
+.ctrl {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.ctrl-btn {
+    /*padding: 20px 20px;*/
+    /*min-width: 50px;*/
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+
+    position: absolute;
+    top: 50%;
+    margin-top: -27.5px;
+}
+
+.ctrl-btn.pro-prev {
+    left: -50px;
+}
+
+.ctrl-btn.pro-next {
+    right: -50px;
+}
+
+.slider-parent {
+    position: relative;
+}
+
+.slider-parent .ctrl-btn .material-icons {
+    font-size: 50px;
+}
+
+/*HEADER START*/
+
+header {
+    background: black;
+    opacity: 0.70;
+    color: grey;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+}
+
+header nav ul li {
+    padding: 20px 30px;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+header nav ul li:hover {
+    color: #ffffff;
+    opacity: 1;
+    background: black;
+}
+
+.fas.fa-heart{
+    color: red;
+}
+.show-more{
+    float: right;
+}

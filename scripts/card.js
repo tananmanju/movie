@@ -1,12 +1,15 @@
-import {rating} from "./rating.js";
+import { rating } from "./rating.js";
 
 function getImagePath(path) {
     return `https://image.tmdb.org/t/p/w500/${path}`
 }
 
 function getMovieItem(movie) {
-    return `<div class="item">
-                <img src="${getImagePath(movie.poster_path)}"/>
+    return `<div class="card">
+           <figure>
+                <img src="${getImagePath(movie.poster_path)}" alt="movie-image" title="movie-image"/>
+                <figcaption></figcaption>
+            </figure>
                 <div class="details">
                     <div class="title">
                         <h3>${movie.title}</h3>
@@ -21,4 +24,4 @@ function getMovieItem(movie) {
 }
 
 
-export {getMovieItem}
+export { getMovieItem }

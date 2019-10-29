@@ -8,6 +8,8 @@ body, html {
 }
 
 
+/* slider css Start */
+
 .slider {
     width: 100%;
     height: 100%;
@@ -94,29 +96,29 @@ body, html {
 
 /*HEADER START*/
 
-header {
+.header {
     background: black;
     opacity: 0.70;
     color: grey;
 }
 
-header nav ul {
+.navbar__menu {
     list-style: none;
     display: flex;
     flex-direction: row;
     margin: 0;
 }
 
-header nav ul li {
+.navbar__list {
     padding: 20px 30px;
 }
 
-header nav ul li a {
+.navbar--item {
     text-decoration: none;
     color: #ffffff;
 }
 
-header nav ul li:hover {
+.navbar__list:hover {
     color: #ffffff;
     opacity: 1;
     background: black;

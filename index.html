@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="styles/index.css"/>
+    <title>Movie App</title>
+    <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script>
 </head>
-<body>
-<header>
-    <nav>
-        <h3 class="logo">
-            <a href="/">Movie App</a>
-        </h3>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/">Explore</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<section class="container">
-    <section id="latest-movies"></section>
-    <section id="trending-movies"></section>
-    <section id="popular-movies"></section>
-</section>
 
-<script type="module" src="index.js"></script>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__list">
+                    <a class="navbar--item" href="/">Movie App</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar--item" href="/">Home</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar--item" href="/">Explore</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="container">
+            <article id="latest-movies"></article>
+            <article id="trending-movies"></article>
+            <article id="popular-movies"></article>
+        </section>
+    </main>
+
+    <script type="module" src="index.js"></script>
 </body>
+
 </html>

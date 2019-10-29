@@ -1,4 +1,4 @@
-import {getMovieItem} from "./item.js";
+import {getMovieItem} from "./card.js";
 
 const ITEMS_TO_MOVE = 4;
 const ITEM_WIDTH = 310;

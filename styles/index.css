@@ -30,31 +30,31 @@ body, html {
     transition: 0.3s left ease-in-out;
 }
 
-.slider .item {
+.slider .card {
     margin-right: 10px;
 }
 
-.slider .item img {
+.slider .card img {
     width: 300px;
     height: 350px;
 }
 
-.slider .item .details {
+.slider .card .details {
     margin: 0 20px;
 }
 
-.slider .item .title {
+.slider .card .title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.slider .item .title i {
+.slider .card .title i {
     font-size: 2em;
     margin-top: 0.5em;;
 }
 
-.slider .item:last-child {
+.slider .card:last-child {
     margin-right: 0;
 }
 

@@ -6,7 +6,7 @@ function getImagePath(path) {
 
 function getMovieItem(movie) {
     return `<div class="card">
-           <figure>
+           <figure class="">
                 <img src="${getImagePath(movie.poster_path)}" alt="movie-image" title="movie-image"/>
                 <figcaption></figcaption>
             </figure>

@@ -1,20 +1,14 @@
 "use strict";
-import {productScroll} from "./scripts/carousel.js";
+import { productScroll } from "./scripts/carousel.js";
 
 const API_KEY = "680d339ae650bec42897ef2b4401d0de";
-import {getCarousel} from "./scripts/carousel.js";
+import { getCarousel } from "./scripts/carousel.js";
 
 let genres;
 
 function getGenres() {
-    return fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`).then(res => res.json())
-        .then(data => {
-            genres = data.genres.reduce(function (acc, item) {
-                acc[item.id] = item.name;
-                return acc;
-            }, {});
-            return Promise.resolve();
-        });
+    return fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+        .then(res => res.json())
 }
 
 function getLatestMovies() {
@@ -38,14 +32,23 @@ function getPopularMovies() {
         })
 }
 
-getGenres().then(() => {
-    const all = [];
-    all.push(getLatestMovies());
-    all.push(getTrendingMovies());
-    all.push(getPopularMovies());
-    return Promise.all(all)
-}).then(data => {
+const all = [];
+all.push(getGenres())
+all.push(getLatestMovies());
+all.push(getTrendingMovies());
+all.push(getPopularMovies());
+console.log(all);
+
+
+Promise.all(all).then(data => {
     console.log(data);
+    const genreData = data.shift();
+    genres = genreData.genres.reduce(function (acc, item) {
+        acc[item.id] = item.name;
+        return acc;
+    }, {});
+
+
     const latest = data.shift();
     const trending = data.shift();
     const popular = data.shift();
@@ -53,7 +56,7 @@ getGenres().then(() => {
     document.getElementById("latest-movies").innerHTML = getCarousel("latest", {
         title: "Latest",
         movies: latest.results,
-        genres
+        genres: genres
     });
     document.getElementById("trending-movies").innerHTML = getCarousel("trending", {
         title: "Trending",
@@ -70,4 +73,6 @@ getGenres().then(() => {
     productScroll("latest");
     productScroll("trending");
     productScroll("popular");
+}).catch(err => {
+    console.error(err)
 });

@@ -4,7 +4,8 @@ body, html {
 
 
 .container {
-    margin: 0 100px;
+    margin: 0 auto;
+    width: 90%;
 }
 
 
@@ -23,38 +24,41 @@ body, html {
     display: none;
 }
 
-.slider .slide {
+.slide {
     display: flex;
     position: relative;
     left: 0;
     transition: 0.3s left ease-in-out;
 }
 
-.slider .card {
+.card {
     margin-right: 10px;
 }
 
-.slider .card img {
+.card-image {
     width: 300px;
     height: 350px;
 }
 
-.slider .card .details {
+.details {
     margin: 0 20px;
 }
 
-.slider .card .title {
+.card-title {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
+.fig-image{
+    margin: 0;
+}
 
-.slider .card .title i {
-    font-size: 2em;
+.card-heart {
+    font-size: 1.7em;
     margin-top: 0.5em;;
 }
 
-.slider .card:last-child {
+.card:last-child {
     margin-right: 0;
 }
 
@@ -72,17 +76,16 @@ body, html {
     text-align: center;
     cursor: pointer;
     outline: none;
-
     position: absolute;
     top: 50%;
     margin-top: -27.5px;
 }
 
-.ctrl-btn.pro-prev {
+.pro-prev {
     left: -50px;
 }
 
-.ctrl-btn.pro-next {
+.pro-next {
     right: -50px;
 }
 
@@ -124,7 +127,7 @@ body, html {
     background: black;
 }
 
-.fas.fa-heart{
+.fas-heart{
     color: red;
 }
 .show-more{

@@ -6,14 +6,14 @@ function getImagePath(path) {
 
 function getMovieItem(movie) {
     return `<div class="card">
-           <figure class="">
-                <img src="${getImagePath(movie.poster_path)}" alt="movie-image" title="movie-image"/>
+           <figure class="fig-image">
+                <img src="${getImagePath(movie.poster_path)}" alt="movie-image" class="card-image" title="movie-image"/>
                 <figcaption></figcaption>
             </figure>
                 <div class="details">
-                    <div class="title">
+                    <div class="card-title">
                         <h3>${movie.title}</h3>
-                         ${movie.popularity > 150 ? '<i class="fas fa-heart"></i>' : '<i class="far fa-heart"></i>'}
+                         ${movie.popularity > 150 ? '<i class="fas fa-heart card-heart"></i>' : '<i class="far fa-heart card-heart"></i>'}
                     </div>
                     <p>${movie.genres.join(", ")}</p>
                     <p>${rating(movie.vote_average)}

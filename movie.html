@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Detail page</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__list">
+                    <a class="navbar__item" href="/">Movie App</a>
+                </li>
+                <li class="navbar__list active">
+                    <a class="navbar--item" href="/">Home</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar--item" href="/">Explore</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+      <movie-detail>
+          </movie-detail> 
+            
+    </main>
+    <template id="movie-detail">
+            <section>
+                <figure class="image-margin">
+                    <slot name="movie-detail-image"></slot>
+                   
+                </figure>
+            </section>
+            <section>
+                <article class="movie-description" >
+                    <div class="movie-heading">
+                        <h3 class="heading-font">
+                            
+                            <slot name="movie-detail-title"></slot>
+                        </h3>
+                        <p>
+                            More than two decades have passed since Sarah Connor prevented Judgment Day,
+                            changed the future, and re-wrote the fate of the human race.
+                            Dani Ramos is living a simple life in Mexico City with her brother and father when a highly
+                            advanced and deadly new Terminator – a Rev-9 – travels back through time to hunt and kill her.
+                            Dani's survival depends on her joining forces with two warriors: Grace, an enhanced
+                            super-soldier from the future,
+                            and a battle-hardened Sarah Connor. As the Rev-9 ruthlessly
+                            destroys everything and everyone in its path on the hunt for Dani, the three are led to a T-800
+                            from Sarah’s past that may be their last best hope.
+                        </p>
+                    </div>
+                    <div class="movie-heading">
+                        <ul>
+                            <li>
+                                <b>genres</b>
+                            </li>
+                            <li>
+                                <b>genres</b>
+                            </li>
+                            <li>
+                                <b>genres</b>
+                            </li>
+                            <li>
+                                <b>genres</b>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </article>
+                <section>
+                    <section>
+                        <article id="related-movie">
+                            <h2>related movie
+                                </h2>
+                            </article>
+                    </section>
+                    <style>
+                        .movie-detail-posterimage{
+                            width: 100%;
+                        }
+                        .image-margin{
+                            margin: 0;
+                        }
+                        .movie-description{
+                            display: flex;
+                            flex-direction: row;
+                           
+                        }
+                        .movie-heading{
+                            width: 50%;
+                            padding:1em;
+                        }
+                        .heading-font{
+                            font-size: 2em;
+                        }
+                        </style>
+                </template>
+
+
+
+    <script type="module" src="scripts/movie.js"></script>
+</body>
+
+</html>

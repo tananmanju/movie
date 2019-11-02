@@ -1,7 +1,7 @@
 import {getMovieItem} from "./card.js";
 
 const ITEMS_TO_MOVE = 4;
-const ITEM_WIDTH = 310;
+const ITEM_WIDTH = 325;
 
 function productScroll(id) {
     let slider = document.getElementById(id);
@@ -12,7 +12,6 @@ function productScroll(id) {
 
     console.log(next);
 
-    //for (let i = 0; i < next.length; i++) {
     //refer elements by class name
 
     let position = 0; //slider postion
@@ -34,8 +33,6 @@ function productScroll(id) {
             translateX(position, slide); //translate items
         }
     });
-
-    //}
 
     function hiddenItems() {
         //get hidden items

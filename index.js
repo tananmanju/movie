@@ -31,6 +31,13 @@ function getPopularMovies() {
             return response.json();
         })
 }
+function getQuikModal(id) {
+    return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8441a5264ec7146ab1efd03895169958&language=en-US&append_to_response=credits`)
+        .then(response => {
+            return response.json();
+        });
+}
+
 
 const all = [];
 all.push(getGenres())

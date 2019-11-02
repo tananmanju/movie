@@ -5,23 +5,85 @@ function getImagePath(path) {
 }
 
 function getMovieItem(movie) {
-    return `<div class="card">
-           <figure class="fig-image">
-                <img src="${getImagePath(movie.poster_path)}" alt="movie-image" class="card-image" title="movie-image"/>
-                <figcaption></figcaption>
-            </figure>
-                <div class="details">
-                    <div class="card-title">
-                        <h3>${movie.title}</h3>
-                         ${movie.popularity > 150 ? '<i class="fas fa-heart card-heart"></i>' : '<i class="far fa-heart card-heart"></i>'}
-                    </div>
-                    <p>${movie.genres.join(", ")}</p>
-                    <p>${rating(movie.vote_average)}
-                    <a href="" class="show-more">Show more</a></p>
-                </div>
-            </div>
+    return `<movie-card id="${movie.id}">
+    <img slot="movie-image" src="${getImagePath(movie.poster_path)}"  alt="movie-image" class="card-image"
+                    title="movie-image" />
+    <span slot="movie-title">${movie.title}</span>
+    ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fas fa-heart card-heart fas-heart"></i>' : '<i slot="movie-popularity" class="far fa-heart card-heart"></i>'}
+    <span slot="movie-genres">${movie.genres.join(", ")}</span>
+    <span slot="movie-rating"> ${rating(movie.vote_average)}</span>
+    <a slot="movie-show-more" href="/tw-movie/training/movie.html?id=${movie.id}" class="show-more">Show more</a>
+    </movie-card>
 `
 }
 
 
+
+function getMovieModalData(movie_id) {
+    return fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=8441a5264ec7146ab1efd03895169958&language=en-US&append_to_response=credits`)
+        .then(response => {
+            return response.json();
+        })
+
+}
+
 export { getMovieItem }
+
+customElements.define("movie-card",
+    class MovieCard extends HTMLElement {
+        constructor() {
+            super();
+            let template = document.getElementById("movie-card").content;
+            let shadowRoot = this.attachShadow({ mode: 'open' });
+            shadowRoot.appendChild(template.cloneNode(true));
+            const showModalElement = shadowRoot.getElementById("movie-card-container");
+            let quikView;
+            showModalElement.addEventListener('click', event => {
+                getMovieModalData(this.getAttribute("id"))
+                    .then(response => {
+                        console.log(response);
+                        document.getElementsByTagName('movie-quick-view').length && document.body.removeChild(document.getElementsByTagName('movie-quick-view')[0]);
+                        quikView = document.createElement('movie-quick-view');
+                        quikView.innerHTML = `<span slot="movie-quick-title">${response.title}
+            </span>
+            <img slot="movie-modal-image" src="${getImagePath(response.poster_path)}" alt="movie-modal-image" width="240" height="170"/> 
+            <span slot="movie-modal-description">${response.overview}</span>
+            <span slot="movie-modal-genres">${response.genres.map(genre => genre.name)}</span>
+            <span slot="movie-modal-cast">${response.credits.cast.slice(0, 5).map(actor => actor.name)}</span>
+            <span slot="movie-modal-director">${response.credits.crew.find(actor => actor.job === "Director").name}</span>
+            <span slot="movie-modal-rating">${rating(response.vote_average)}</span>`;
+
+                        document.body.appendChild(quikView);
+
+                    });
+                event.preventDefault();
+            }
+
+            )
+
+        }
+    }
+)
+
+customElements.define("movie-quick-view",
+    class MovieQuickView extends HTMLElement {
+        constructor() {
+            super();
+            let template = document.getElementById("movie-quick-view").content;
+            let shadowRoot = this.attachShadow({ mode: 'open' });
+            shadowRoot.appendChild(template.cloneNode(true));
+
+            shadowRoot.getElementById('modal-close').addEventListener('click', removeModal);
+
+            function removeModal() {
+                document.getElementsByTagName('movie-quick-view').length && document.body.removeChild(document.getElementsByTagName('movie-quick-view')[0]);
+            }
+            window.addEventListener('click', removeModal);
+        }
+
+        disconnectedCallback() {
+            window.removeEventListener('click', removeModal);
+        }
+
+    }
+)

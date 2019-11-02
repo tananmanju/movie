@@ -1,5 +1,7 @@
-body, html {
-    margin: 0;
+body {
+    width: 97%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
 }
 
 
@@ -33,14 +35,20 @@ body, html {
 
 .card {
     margin-right: 10px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
 }
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
 
 .card-image {
-    width: 300px;
-    height: 350px;
+    width: 315px;
+    height: 170px;
 }
 
-.details {
+.card-details {
     margin: 0 20px;
 }
 
@@ -68,8 +76,7 @@ body, html {
 }
 
 .ctrl-btn {
-    /*padding: 20px 20px;*/
-    /*min-width: 50px;*/
+
     background: transparent;
     border: none;
     font-weight: 600;
@@ -113,12 +120,12 @@ body, html {
 }
 
 .navbar__list {
-    padding: 20px 30px;
+    padding: 15px 30px;
 }
 
-.navbar--item {
+.navbar__item {
     text-decoration: none;
-    color: #ffffff;
+    color: #d0d0d0;
 }
 
 .navbar__list:hover {
@@ -132,4 +139,18 @@ body, html {
 }
 .show-more{
     float: right;
+}
+
+
+movie-quick-view{
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0.4);
+
 }

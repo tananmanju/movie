@@ -14,9 +14,9 @@
         <nav class="navbar">
             <ul class="navbar__menu">
                 <li class="navbar__list">
-                    <a class="navbar--item" href="/">Movie App</a>
+                    <a class="navbar__item" href="/">Movie App</a>
                 </li>
-                <li class="navbar__list">
+                <li class="navbar__list active">
                     <a class="navbar--item" href="/">Home</a>
                 </li>
                 <li class="navbar__list">
@@ -25,13 +25,203 @@
             </ul>
         </nav>
     </header>
-    <main>
-        <section class="container">
+    <main class="container">
+        <section>
             <article id="latest-movies"></article>
             <article id="trending-movies"></article>
             <article id="popular-movies"></article>
         </section>
     </main>
+    <template id="movie-card">
+        <div class="card">
+            <figure class="fig-image" id="movie-card-container">
+                <slot name="movie-image"></slot>
+            </figure>
+            <div class="card-details">
+                <div class="card-title">
+                    <h3>
+                        <slot name="movie-title"></slot>
+                    </h3>
+                    <slot name="movie-popularity"></slot>
+
+                </div>
+                <p>
+                    <slot name="movie-genres"></slot>
+                </p>
+                <p>
+                    <slot name="movie-rating"></slot>
+                    <slot name="movie-show-more"></slot>
+                  
+                </p>
+
+
+            </div>
+        </div>
+        <style>
+            .card {
+                margin-right: 10px;
+                border: 1px solid #ddd;
+            }
+
+            .card:hover {
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            }
+
+            .card-image {
+                width: 320px;
+                height: 170px;
+            }
+
+            .card-details {
+                margin: 0 20px;
+            }
+
+            .card-title {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            .fig-image {
+                margin: 0;
+            }
+
+            .card-heart {
+                font-size: 1.7em;
+                margin-top: 0.5em;
+                ;
+            }
+
+            .fas-heart {
+                color: red;
+            }
+
+            .show-more {
+                float: right;
+            }
+        </style>
+    </template>
+
+    <template id="movie-quick-view">
+        <section class="quick-view">
+            <h1 class="movie-quick-title">
+                <slot name="movie-quick-title"></slot>
+                <span class="modal-close" id="modal-close">&times;</span>
+                </h2>
+                <hr>
+                <div class="movie-modal-details">
+                    <figure class="movie-modal-image">
+                        <slot name="movie-modal-image"></slot>
+
+                    </figure>
+                    <div class="movie-modal-description">
+                        <p class="description-scroll">
+                            <slot name="movie-modal-description">
+                            </slot>
+                        </p>
+                    </div>
+                </div>
+                <article>
+                    <ul class="movie-modal-list">
+                        <li>
+                            <div class="modal-details">
+                                <b class="modal-detail-heading">Genres</b>
+                                <p class="modal-detail-description">
+                                    <slot name="movie-modal-genres">
+                                    </slot>
+                                </p>
+                        </li>
+                        </div>
+                        <li>
+                            <div class="modal-details">
+                                <b class="modal-detail-heading">Cast</b>
+                                <p class="modal-detail-description">
+                                    <slot name="movie-modal-cast">
+                                    </slot>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="modal-details">
+                                <b class="modal-detail-heading">Director</b>
+                                <p class="modal-detail-description">
+                                    <slot name="movie-modal-director">
+                                    </slot>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="modal-details">
+                                <b class="modal-detail-heading">Movie Rating</b>
+                                <p class="modal-detail-description">
+                                    <slot name="movie-modal-rating">
+                                    </slot>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </article>
+        </section>
+
+        <style>
+            .quick-view {
+                width: 50%;
+                background-color: #fefefe;
+                margin: auto;
+                border: 1px solid #888;
+                border-radius: 10px;
+            }
+
+            .modal-close {
+                float: right;
+                padding-right: 1em;
+            }
+
+            .movie-modal-image {
+                width: 320px;
+                height: 170px;
+                margin: 1em;
+            }
+
+            .movie-modal-details {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .movie-quick-title {
+                padding-left: 0.8em;
+            }
+
+            .movie-modal-description {
+                padding-right: 1em;
+            }
+
+            .movie-modal-list {
+                list-style-type: none;
+            }
+
+            .modal-details {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .modal-detail-heading {
+                padding-top: 15px;
+                width: 20%;
+                font-size: 1.1em;
+            }
+
+            .modal-detail-description {
+                width: 80%;
+            }
+
+            .description-scroll {
+                max-height: 172px;
+                overflow-y: auto;
+            }
+        </style>
+    </template>
+
 
     <script type="module" src="index.js"></script>
 </body>

@@ -1,0 +1,41 @@
+.movie__card {
+    margin-right: 10px;
+    border: 1px solid #ddd;
+}
+
+.movie__card:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+    width: 320px;
+    height: 170px;
+}
+
+.movie-card__details {
+    margin: 0 20px;
+}
+
+.movie-card__title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.movie-card__image {
+    margin: 0;
+}
+
+.movie-card__heart {
+    font-size: 1.7em;
+    margin-top: 0.5em;
+    
+}
+
+.fas-heart {
+    color: red;
+}
+
+.movie-card__show-more {
+    float: right;
+}

@@ -1,0 +1,55 @@
+.movie__quick-view {
+    width: 50%;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    border-radius: 10px;
+}
+
+.movie-modal__close {
+    float: right;
+    padding-right: 1em;
+}
+
+.movie-modal__image {
+    width: 320px;
+    height: 170px;
+    margin: 1em;
+}
+
+.movie-modal__details {
+    display: flex;
+    flex-direction: row;
+}
+
+.movie-modal__title {
+    padding-left: 0.8em;
+}
+
+.movie-modal__description {
+    padding-right: 1em;
+}
+
+.movie-modal__list {
+    list-style-type: none;
+}
+
+.modal-list__details{
+    display: flex;
+    flex-direction: row;
+}
+
+.modal-detail__heading {
+    padding-top: 15px;
+    width: 20%;
+    font-size: 1.1em;
+}
+
+.modal-detail__description {
+    width: 80%;
+}
+
+.movie-description--scroll {
+    max-height: 172px;
+    overflow-y: auto;
+}

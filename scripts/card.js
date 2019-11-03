@@ -9,10 +9,10 @@ function getMovieItem(movie) {
     <img slot="movie-image" src="${getImagePath(movie.poster_path)}"  alt="movie-image" class="card-image"
                     title="movie-image" />
     <span slot="movie-title">${movie.title}</span>
-    ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fas fa-heart card-heart fas-heart"></i>' : '<i slot="movie-popularity" class="far fa-heart card-heart"></i>'}
+    ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fas fa-heart movie-card__heart fas-heart"></i>' : '<i slot="movie-popularity" class="far fa-heart movie-card__heart"></i>'}
     <span slot="movie-genres">${movie.genres.join(", ")}</span>
     <span slot="movie-rating"> ${rating(movie.vote_average)}</span>
-    <a slot="movie-show-more" href="/tw-movie/training/movie.html?id=${movie.id}" class="show-more">Show more</a>
+    <a slot="movie-show-more" href="/tw-movie/training/movie.html?id=${movie.id}" >Show more</a>
     </movie-card>
 `
 }
@@ -29,13 +29,50 @@ function getMovieModalData(movie_id) {
 
 export { getMovieItem }
 
+const template = document.createElement('template');
+template.innerHTML = `
+<div class="movie__card">
+    <figure class="movie-card__image" id="movie-card-container">
+        <slot name="movie-image"></slot>
+    </figure>
+    <div class="movie-card__details">
+        <div class="movie-card__title">
+            <h3>
+                <slot name="movie-title"></slot>
+            </h3>
+            <span class="movie-card__heart">
+                <slot name="movie-popularity"></slot>
+            </span>
+
+        </div>
+        <p>
+            <slot name="movie-genres"></slot>
+        </p>
+        <p>
+            <slot name="movie-rating"></slot>
+            <span class="movie-card__show-more">
+                <slot name="movie-show-more"></slot>
+            </span>
+
+        </p>
+
+
+    </div>
+</div>`
+
 customElements.define("movie-card",
     class MovieCard extends HTMLElement {
         constructor() {
             super();
-            let template = document.getElementById("movie-card").content;
             let shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.appendChild(template.cloneNode(true));
+            shadowRoot.appendChild(template.content.cloneNode(true));
+            //link card css file
+            const linkElement = document.createElement("link");
+            linkElement.setAttribute('rel', 'stylesheet');
+            linkElement.setAttribute('href', 'styles/card.css');
+            shadowRoot.appendChild(linkElement);
+
+
             const showModalElement = shadowRoot.getElementById("movie-card-container");
             let quikView;
             showModalElement.addEventListener('click', event => {
@@ -65,25 +102,4 @@ customElements.define("movie-card",
     }
 )
 
-customElements.define("movie-quick-view",
-    class MovieQuickView extends HTMLElement {
-        constructor() {
-            super();
-            let template = document.getElementById("movie-quick-view").content;
-            let shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.appendChild(template.cloneNode(true));
 
-            shadowRoot.getElementById('modal-close').addEventListener('click', removeModal);
-
-            function removeModal() {
-                document.getElementsByTagName('movie-quick-view').length && document.body.removeChild(document.getElementsByTagName('movie-quick-view')[0]);
-            }
-            window.addEventListener('click', removeModal);
-        }
-
-        disconnectedCallback() {
-            window.removeEventListener('click', removeModal);
-        }
-
-    }
-)

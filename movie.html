@@ -36,7 +36,6 @@
         <section>
             <figure class="image-margin">
                 <slot name="movie-detail-image"></slot>
-
             </figure>
         </section>
         <section class="container">
@@ -124,18 +123,23 @@
                         padding-bottom: 1.3em;
 
                     }
-                    .movie-list__item:nth-last-child(1) .movie-list--border{
+
+                    .movie-list__item:nth-last-child(1) .movie-list--border {
                         border-bottom: 0;
                         padding-bottom: 1.3em;
 
+                    }
+
+                    .container {
+                        margin: 0 auto;
+                        width: 90%;
                     }
                 </style>
     </template>
 
     <section class="container">
         <article id="related-movie">
-            <h2>related movie
-            </h2>
+
         </article>
     </section>
 

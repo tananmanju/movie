@@ -29,43 +29,16 @@ function getMovieModalData(movie_id) {
 
 export { getMovieItem }
 
-const template = document.createElement('template');
-template.innerHTML = `
-<div class="movie__card">
-    <figure class="movie-card__image" id="movie-card-container">
-        <slot name="movie-image"></slot>
-    </figure>
-    <div class="movie-card__details">
-        <div class="movie-card__title">
-            <h3>
-                <slot name="movie-title"></slot>
-            </h3>
-            <span class="movie-card__heart">
-                <slot name="movie-popularity"></slot>
-            </span>
-
-        </div>
-        <p>
-            <slot name="movie-genres"></slot>
-        </p>
-        <p>
-            <slot name="movie-rating"></slot>
-            <span class="movie-card__show-more">
-                <slot name="movie-show-more"></slot>
-            </span>
-
-        </p>
-
-
-    </div>
-</div>`
 
 customElements.define("movie-card",
     class MovieCard extends HTMLElement {
         constructor() {
             super();
+            var link = document.querySelector('link#card');
+            //  var post = link.import.querySelector('#blog-post');
+            let template = link.import.getElementById("movie-card").content;
             let shadowRoot = this.attachShadow({ mode: 'open' });
-            shadowRoot.appendChild(template.content.cloneNode(true));
+            shadowRoot.appendChild(template.cloneNode(true));
             //link card css file
             const linkElement = document.createElement("link");
             linkElement.setAttribute('rel', 'stylesheet');

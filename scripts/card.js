@@ -6,10 +6,10 @@ function getImagePath(path) {
 
 function getMovieItem(movie) {
     return `<movie-card id="${movie.id}">
-    <img slot="movie-image" src="${getImagePath(movie.poster_path)}"  alt="movie-image" class="card-image"
+    <img slot="movie-image" src="${getImagePath(movie.backdrop_path)}"  alt="movie-image" class="card-image"
                     title="movie-image" />
     <span slot="movie-title">${movie.title}</span>
-    ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fas fa-heart movie-card__heart fas-heart"></i>' : '<i slot="movie-popularity" class="far fa-heart movie-card__heart"></i>'}
+    ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart movie-card__heart fas-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart movie-card__heart"></i>'}
     <span slot="movie-genres">${movie.genres.join(", ")}</span>
     <span slot="movie-rating"> ${rating(movie.vote_average)}</span>
     <a slot="movie-show-more" href="/tw-movie/training/movie.html?id=${movie.id}" >Show more</a>

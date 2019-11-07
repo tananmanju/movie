@@ -3,15 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-   <!-- <base href="/tw-movie/training/"/> -->
+    <!-- <base href="/tw-movie/training/"/> -->
     <title>Movie App</title>
     <link rel="stylesheet" href="styles/index.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  
     <link rel="import" id="card" href="card/card.html">
     <link rel="import" id="quick-view" href="views/quik-view.html">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script>
+    <!-- //<script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -37,69 +36,6 @@
             <article id="popular-movies"></article>
         </section>
     </main>
-    <!-- <template id="movie-quick-view">
-        <section class="movie__quick-view">
-            <h1 class="movie-modal__title">
-                <slot name="movie-quick-title"></slot>
-                <span class="movie-modal__close" id="modal-close">&times;</span>
-                </h2>
-                <hr>
-                <div class="movie-modal__details">
-                    <figure class="movie-modal__image">
-                        <slot name="movie-modal-image"></slot>
-                    </figure>
-                    <div class="movie-modal__description">
-                        <p class="movie-description--scroll">
-                            <slot name="movie-modal-description">
-                            </slot>
-                        </p>
-                    </div>
-                </div>
-                <article>
-                    <ul class="movie-modal__list">
-                        <li>
-                            <div class="modal-list__details">
-                                <b class="modal-detail__heading">Genres</b>
-                                <p class="modal-detail__description">
-                                    <slot name="movie-modal-genres">
-                                    </slot>
-                                </p>
-                        </li>
-                        </div>
-                        <li>
-                            <div class="modal-list__details">
-                                <b class="modal-detail__heading">Cast</b>
-                                <p class="modal-detail__description">
-                                    <slot name="movie-modal-cast">
-                                    </slot>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="modal-list__details">
-                                <b class="modal-detail__heading">Director</b>
-                                <p class="modal-detail__description">
-                                    <slot name="movie-modal-director">
-                                    </slot>
-                                </p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="modal-list__details">
-                                <b class="modal-detail__heading">Movie Rating</b>
-                                <p class="modal-detail__description">
-                                    <slot name="movie-modal-rating">
-                                    </slot>
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </article>
-        </section>
-
-
-    </template> -->
-
 
     <script type="module" src="index.js"></script>
     <script type="module" src="scripts/modal.js"></script>

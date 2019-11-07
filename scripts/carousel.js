@@ -1,7 +1,7 @@
 import {getMovieItem} from "./card.js";
 
 const ITEMS_TO_MOVE = 4;
-const ITEM_WIDTH = 325;
+const ITEM_WIDTH = 345  ;
 
 function productScroll(id) {
     let slider = document.getElementById(id);
@@ -37,7 +37,11 @@ function productScroll(id) {
     function hiddenItems() {
         //get hidden items
         let items = item.children.length;
+        console.log("items",items);
+        console.log("slider.offsetWidth",slider.offsetWidth);
+        console.log(" ITEM_WIDTH", ITEM_WIDTH)
         let visibleItems = slider.offsetWidth / ITEM_WIDTH;
+        console.log("visibleItems",visibleItems);
         return items - Math.ceil(visibleItems);
     }
 }
@@ -63,10 +67,10 @@ function getCarousel(id, data) {
                       <div class="slide" id="slide">${items.join("")}</div>
                 </div>
                 <button class="ctrl-btn pro-prev">
-                    <i class="material-icons">arrow_back_ios</i>
+                    <i class="fa fa-chevron-left fa-3x"></i>
                 </button>
                 <button class="ctrl-btn pro-next">
-                    <i class="material-icons">arrow_forward_ios</i>
+                    <i class="fa fa-chevron-right fa-3x"></i>
                 </button>      
             </div>`
 }

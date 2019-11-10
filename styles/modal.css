@@ -49,7 +49,11 @@
 }
 
 .modal-detail__description {
-    width: 80%;
+    /* width: 80%; */
+    width: 66%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .movie-description--scroll {

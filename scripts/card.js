@@ -9,8 +9,6 @@ function getMovieItem(movie) {
     ${movie.backdrop_path ? `<img slot="movie-image" src="${getImagePath(movie.backdrop_path)}"  alt="movie-image" class="card-image"
     title="movie-image" />` : `<img slot="movie-image" src="assets/images/320x170.png"  alt="movie-image" class="card-image"
     title="movie-image" />`}
-
-    
     <span slot="movie-title">${movie.title}</span>
     ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart movie-card__heart fas-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart movie-card__heart"></i>'}
     <span slot="movie-genres">${movie.genres.join(", ")}</span>
@@ -62,7 +60,7 @@ customElements.define("movie-card",
             <img slot="movie-modal-image" src="${getImagePath(response.poster_path)}" alt="movie-modal-image" width="240" height="170"/> 
             <span slot="movie-modal-description">${response.overview}</span>
             <span slot="movie-modal-genres">${response.genres.map(genre => genre.name)}</span>
-            <span slot="movie-modal-cast">${response.credits.cast.slice(0, 5).map(actor => actor.name)}</span>
+            <span slot="movie-modal-cast" class="movie-modal__cast">${response.credits.cast.slice(0, 5).map(actor => actor.name)}</span>
             <span slot="movie-modal-director">${response.credits.crew.find(actor => actor.job === "Director").name}</span>
             <span slot="movie-modal-rating">${rating(response.vote_average)}</span>`;
 

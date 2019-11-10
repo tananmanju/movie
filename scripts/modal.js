@@ -1,6 +1,3 @@
-
-
-
 customElements.define("movie-quick-view",
     class MovieQuickView extends HTMLElement {
         constructor() {

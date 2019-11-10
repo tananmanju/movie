@@ -46,7 +46,7 @@ font-family: 'Roboto';
   }
 
 .card-image {
-    width: 333px;
+    width: 320px;
     height: 170px;
 }
 
@@ -173,4 +173,13 @@ movie-quick-view{
     overflow: hidden;
     background-color: rgba(0,0,0,0.4);
 
+}
+
+.films{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+actor-film-detail{
+    width: 25%;
 }

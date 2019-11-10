@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-     <base href="/tw-movie/training/"/> 
+    <!-- <base href="/tw-movie/training/"/> -->
     <title>Movie App</title>
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="import" id="card" href="card/card.html">
@@ -29,16 +29,22 @@
             </ul>
         </nav>
     </header>
-    <main class="container">
-        <section>
-            <article id="latest-movies"></article>
-            <article id="trending-movies"></article>
-            <article id="popular-movies"></article>
-        </section>
-    </main>
+    <main>
+   
+              <form name="search" id="search">
+                    <input type='text' name="search_term" id='link_id' placeholder="SEARCH">
+                    <input type='submit' id='link_str' value='Search'>
+              </form>
+        
+              <section id="search-items">
 
-    <script type="module" src="index.js"></script>
+              </section>
+            
+</main>
+
+    <!-- <script type="module" src="index.js"></script> -->
     <script type="module" src="scripts/modal.js"></script>
+    <script type="module" src="scripts/search.js"></script>
 </body>
 
 </html>

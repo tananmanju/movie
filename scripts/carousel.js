@@ -1,7 +1,7 @@
 import {getMovieItem} from "./card.js";
 
 const ITEMS_TO_MOVE = 4;
-const ITEM_WIDTH = 345  ;
+const ITEM_WIDTH = 315;
 
 function productScroll(id) {
     let slider = document.getElementById(id);

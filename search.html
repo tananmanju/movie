@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="import" id="card" href="card/card.html">
     <link rel="import" id="quick-view" href="views/quik-view.html">
+    <link rel="stylesheet" href="styles/search.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <!-- //<script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,18 +30,24 @@
             </ul>
         </nav>
     </header>
-    <main>
-   
-              <form name="search" id="search">
-                    <input type='text' name="search_term" id='link_id' placeholder="SEARCH">
-                    <input type='submit' id='link_str' value='Search'>
-              </form>
-        
-              <section id="search-items">
+    <main class="container">
+        <section class="search-result__form">
+            <form name="search" id="search" class="card-serach__form">
+                <input type='text' name="search_term" id='link_id' value="bala" class="card-serach__field" placeholder="SEARCH">
+                <button type='submit' id='link_str' value='Search' class="card-search__button">  <i class="fa fa-search search__font-size" aria-hidden="true"></i> </button>
+            </form>
+        </section>
+        <section>
+            <h2>
+                Results
+                </h2>
+            </section>
 
-              </section>
-            
-</main>
+        <section id="search-items" class="search__card">
+
+        </section>
+
+    </main>
 
     <!-- <script type="module" src="index.js"></script> -->
     <script type="module" src="scripts/modal.js"></script>

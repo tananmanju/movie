@@ -1,5 +1,6 @@
 .movie__card {
     margin-right: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ddd;
 }
 
@@ -16,10 +17,16 @@
     margin: 0 20px;
 }
 
-.movie-card__title {
+.movie-card__heading {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+.movie-card__title{
+    width: 250px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .movie-card__image {

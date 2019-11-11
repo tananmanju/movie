@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <base href="/tw-movie/training/" />
     <title>Movie App</title>
-    <link rel="stylesheet" href="styles/index.css" />
-    <link rel="import" id="card" href="card/card.html">
-    <link rel="import" id="quick-view" href="views/modal.html">
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@2.3.0/webcomponents-bundle.js">
+</script>
+    <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="import" id="card" href="views/card_detal/card.html">
+    <link rel="import" id="quick-view" href="views/modal/modal.html">
 </head>
 
 <body>
@@ -35,7 +37,8 @@
     </main>
 
     <script type="module" src="index.js"></script>
-    <script type="module" src="scripts/modal.js"></script>
+    <script type="module" src="assets/scripts/modal.js"></script>
+    </script>
 </body>
 
 </html>

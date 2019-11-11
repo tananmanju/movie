@@ -1,8 +1,8 @@
 "use strict";
-import { productScroll } from "./scripts/carousel.js";
+import { productScroll } from "./assets/scripts/carousel.js";
 
 const API_KEY = "680d339ae650bec42897ef2b4401d0de";
-import { getCarousel } from "./scripts/carousel.js";
+import { getCarousel } from "./assets/scripts/carousel.js";
 
 let genres;
 
@@ -38,48 +38,53 @@ function getQuikModal(id) {
         });
 }
 
+document.addEventListener('DOMContentLoaded', function(){
 
-const all = [];
-all.push(getGenres())
-all.push(getLatestMovies());
-all.push(getTrendingMovies());
-all.push(getPopularMovies());
-console.log(all);
-
-
-Promise.all(all).then(data => {
-    console.log(data);
-    const genreData = data.shift();
-    genres = genreData.genres.reduce(function (acc, item) {
-        acc[item.id] = item.name;
-        return acc;
-    }, {});
-
-
-    const latest = data.shift();
-    const trending = data.shift();
-    const popular = data.shift();
-
-    document.getElementById("latest-movies").innerHTML = getCarousel("latest", {
-        title: "Latest",
-        movies: latest.results,
-        genres: genres
+setTimeout(function(){
+    const all = [];
+    all.push(getGenres())
+    all.push(getLatestMovies());
+    all.push(getTrendingMovies());
+    all.push(getPopularMovies());
+    console.log(all);
+    
+    Promise.all(all).then(data => {
+        console.log(data);
+        const genreData = data.shift();
+        genres = genreData.genres.reduce(function (acc, item) {
+            acc[item.id] = item.name;
+            return acc;
+        }, {});
+    
+    
+        const latest = data.shift();
+        const trending = data.shift();
+        const popular = data.shift();
+    
+        document.getElementById("latest-movies").innerHTML = getCarousel("latest", {
+            title: "Latest",
+            movies: latest.results,
+            genres: genres
+        });
+        document.getElementById("trending-movies").innerHTML = getCarousel("trending", {
+            title: "Trending",
+            movies: trending.results,
+            genres
+        });
+        document.getElementById("popular-movies").innerHTML = getCarousel("popular", {
+            title: "Most Watched",
+            movies: popular.results,
+            genres
+        });
+        return Promise.resolve();
+    }).then(() => {
+        productScroll("latest");
+        productScroll("trending");
+        productScroll("popular");
+    }).catch(err => {
+        console.error(err)
     });
-    document.getElementById("trending-movies").innerHTML = getCarousel("trending", {
-        title: "Trending",
-        movies: trending.results,
-        genres
-    });
-    document.getElementById("popular-movies").innerHTML = getCarousel("popular", {
-        title: "Most Watched",
-        movies: popular.results,
-        genres
-    });
-    return Promise.resolve();
-}).then(() => {
-    productScroll("latest");
-    productScroll("trending");
-    productScroll("popular");
-}).catch(err => {
-    console.error(err)
-});
+}, 2000)
+
+}, false);
+

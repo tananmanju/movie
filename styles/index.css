@@ -1,9 +1,11 @@
+@import url("variables.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 body {
     width: 97%;
     margin: 0 auto;
     border: 1px solid #636363;
-
-font-family: 'Roboto';
+    font-family: 'Roboto';
 }
 
 
@@ -136,7 +138,7 @@ font-family: 'Roboto';
 }
 
 .navbar__list:hover {
-    color: #ffffff;
+    color: var(--white);
     opacity: 1;
     background: black;
 }
@@ -189,4 +191,7 @@ actor-film-detail{
     text-decoration: none;
     font-size: 1.1em;
     color: #000000ba;
+}
+.actor__filmography{
+    font-size: 1.5em;
 }

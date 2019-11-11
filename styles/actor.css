@@ -1,0 +1,23 @@
+           
+            .actor__detail {
+                display: flex;
+                flex-direction: row;
+            }
+
+            .actor-detail__image {
+                width: 38%;
+                text-align: center;
+
+            }
+
+            .actor-detail__grid {
+                width: 62%;
+                background-color: #e3e3e354;
+                padding: 1em;
+                margin: 1em;
+            }
+
+            .actor-detail__biography {
+                max-height: 250px;
+                overflow-y: auto;
+            }

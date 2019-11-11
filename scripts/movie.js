@@ -51,6 +51,12 @@ customElements.define("movie-detail",
             let shadowRoot = this.attachShadow({ mode: 'open' });
             shadowRoot.appendChild(template.cloneNode(true));
 
+            //link movie css file
+            const linkElement = document.createElement("link");
+            linkElement.setAttribute('rel', 'stylesheet');
+            linkElement.setAttribute('href', 'styles/movie.css');
+            shadowRoot.appendChild(linkElement);
+
         }
     }
 )

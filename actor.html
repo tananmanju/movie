@@ -5,10 +5,6 @@
     <meta charset="UTF-8">
     <title>Movie Detail page</title>
     <link rel="stylesheet" href="styles/index.css" />
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://kit.fontawesome.com/ba7809d4b9.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -28,11 +24,11 @@
         </nav>
     </header>
 
-    <main>
+    <main class="container">
         <actor-detail>
         </actor-detail>
-        <h3> Filmography</h3>
-        <div class="container" id="filmography">
+        <h3 class="actor__filmography"> Filmography</h3>
+        <div id="filmography">
 
         </div>
 
@@ -61,30 +57,7 @@
 
             </section>
         </section>
-        <style>
-            .actor__detail {
-                display: flex;
-                flex-direction: row;
-            }
 
-            .actor-detail__image {
-                width: 38%;
-                text-align: center;
-
-            }
-
-            .actor-detail__grid {
-                width: 62%;
-                background-color: #e3e3e354;
-                padding: 1em;
-                margin: 1em;
-            }
-
-            .actor-detail__biography {
-                max-height: 250px;
-                overflow-y: auto;
-            }
-        </style>
 
     </template>
     <template id="actor-film-list">

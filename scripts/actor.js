@@ -69,6 +69,7 @@ customElements.define('actor-film-list-year',
             let template = document.getElementById("actor-film-list").content;
             let shadowRoot = this.attachShadow({ mode: 'open' });
             shadowRoot.appendChild(template.cloneNode(true));
+             
 
         }
     })
@@ -81,6 +82,13 @@ customElements.define('actor-detail',
             let template = document.getElementById("actor-detail").content;
             let shadowRoot = this.attachShadow({ mode: 'open' });
             shadowRoot.appendChild(template.cloneNode(true));
+
+            //link movie css file
+            const linkElement = document.createElement("link");
+            linkElement.setAttribute('rel', 'stylesheet');
+            linkElement.setAttribute('href', 'styles/actor.css');
+            shadowRoot.appendChild(linkElement);
+
         }
     }
 )

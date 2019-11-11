@@ -13,7 +13,7 @@ function getMovieItem(movie) {
     ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart movie-card__heart fas-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart movie-card__heart"></i>'}
     <span slot="movie-genres">${movie.genres.join(", ")}</span>
     <span slot="movie-rating"> ${rating(movie.vote_average)}</span>
-    <a slot="movie-show-more" href="/tw-movie/training/movie.html?id=${movie.id}" >Show more</a>
+    <a slot="movie-show-more" href="movie.html?id=${movie.id}" >Show more</a>
     </movie-card>
 `
 }

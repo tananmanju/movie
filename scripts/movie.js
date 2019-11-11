@@ -36,7 +36,7 @@ getMovieData().then(movie => {
  <img slot="movie-detail-image" src="${movieImage_Base + movie.backdrop_path}" cl1ass="movie-detail-posterimage" width="100%" />
  <span slot="movie-detail-description">${movie.overview}</span>
  <span slot="movie-genres">${movie.genres.map(genre => genre.name)}</span>
- <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="/tw-movie/training/actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`)}</span>
+ <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`)}</span>
 <span slot="movie-director">${movie.credits.crew.find(actor => actor.job === "Director").name}</span></a>
  <span slot="movie-rating">${rating(movie.vote_average)}</span>`;
 

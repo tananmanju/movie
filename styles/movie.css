@@ -1,9 +1,12 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 .movie-detail-posterimage {
     width: 100%;
 }
 
-.image-margin {
+.movie__banner {
     margin: 0;
+    position: relative;
 }
 
 .movie__description {
@@ -28,6 +31,7 @@
     padding: 0;
 }
 
+
 .movie-list__item {
     padding-left: 1em;
     padding-top: 1em;
@@ -36,7 +40,7 @@
 
 .movie-list--border {
     border-bottom: 1px solid #77777773;
-    padding-bottom: 1.3em;
+    /* padding-bottom: 1em; */
     display: flex;
     flex-direction: row;
 
@@ -44,7 +48,7 @@
 
 .movie-list__item:nth-last-child(1) .movie-list--border {
     border-bottom: 0;
-    padding-bottom: 1.3em;
+    padding-bottom: 1em;
 
 }
 
@@ -54,13 +58,27 @@
 }
 
 .movie__font {
-    margin-right: 35px;
-    font-size: 1.2em;
+    width: 24%;
+    font-size: 1.1em;
 }
 
 .movie-list__description {
     margin-top: 5px;
-    padding-left: 1em;
+    width: 78%;
     overflow: auto;
     max-height: 50px;
+}
+.movie-banner__favorite{
+    padding: 18px;
+    font-size: 1em;
+    border-radius: 33px;
+    border: 0;
+
+
+}
+
+.movie-banner__content{
+    position: absolute;
+    right:3em;
+    bottom:1em;
 }

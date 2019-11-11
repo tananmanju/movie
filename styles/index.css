@@ -1,6 +1,8 @@
-@import url("variables.css");
+@import url("variable.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("/header/header.css");
+
 body {
     width: 97%;
     margin: 0 auto;

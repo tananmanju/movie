@@ -24,7 +24,7 @@
 }
 
 .movie-card__title {
-    max-width: 250px;
+    max-width: 225px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -37,7 +37,7 @@
 
 .movie-card__heart {
     font-size: 1.7em;
-    margin-top: 0.5em;
+   
 
 }
 

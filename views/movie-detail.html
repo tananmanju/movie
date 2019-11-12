@@ -1,0 +1,62 @@
+
+<template id="movie-detail">
+    <link rel="stylesheet" href="/assets/styles/movie.css">
+        <section>
+            <figure class="movie__banner">
+                <slot name="movie-detail-image"></slot>
+            </figure>
+            <figcaption class="movie-banner__content">
+                <button class="movie-banner__favorite"> Mark as favorite <i class="fa fa-heart-o"></i></button>
+            </figcaption>
+        </section>
+        <section class="container">
+            <article class="movie__description">
+                <div class="movie__heading">    
+                    <h3 class="movie-heading--font">
+
+                        <slot name="movie-detail-title"></slot>
+                    </h3>
+                    <p class="movie-detail__description">
+                        <slot name="movie-detail-description"></slot>
+                    </p>
+                </div>
+                <div class="movie__heading">
+                    <ul class="movie__list">
+                        <li class="movie-list__item">
+                            <div class="movie-list--border">
+                                <b class="movie__font">Genres</b>
+                                <p class="movie-list__description">
+                                    <slot name="movie-genres"></slot>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="movie-list__item">
+                            <div class="movie-list--border">
+                                <b class="movie__font">Cast</b>
+                                <p class="movie-list__description">
+                                    <slot name="movie-cast"></slot>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="movie-list__item">
+                            <div class="movie-list--border">
+                                <b class="movie__font">Director</b>
+                                <p class="movie-list__description">
+                                    <slot name="movie-director"></slot>
+                                </p>
+                            </div>
+                        </li>
+                        <li class="movie-list__item">
+                            <div class="movie-list--border">
+                                <b class="movie__font">Movie Rating</b>
+                                <p class="movie-list__description">
+                                    <slot name="movie-rating"></slot>
+                                </p>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </template>

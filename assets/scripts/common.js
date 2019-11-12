@@ -6,8 +6,8 @@ export function resolveGenres(data) {
     }, {});
 }
 
-export function resolveImagePath(path) {
-    return `https://image.tmdb.org/t/p/w500/${path}`
+export function resolveImagePath(path,size = 'w500') {
+    return `https://image.tmdb.org/t/p/${size}/${path}`
 }
 
 export function addHeader() {

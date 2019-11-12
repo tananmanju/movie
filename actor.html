@@ -2,111 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Movie Detail page</title>
-    <link rel="stylesheet" href="assets/styles/index.css" />
+        <meta charset="UTF-8">
+        <title>Movie Detail page</title>
+        <meta name="viewport" content="width=device-width , initial-scale=1.0">
+        <link rel="stylesheet" href="assets/styles/index.css" />
+        <link rel="import" id="header" href="views/header.html">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li class="navbar__list">
-                    <a class="navbar__item" href="/">Movie App</a>
-                </li>
-                <li class="navbar__list active">
-                    <a class=" navbar__item navbar__item--active" href="/">Home</a>
-                </li>
-                <li class="navbar__list">
-                    <a class="navbar__item" href="/">Explore</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+        <section id="header-section"></section>
 
     <main class="container">
-        <actor-detail>
-        </actor-detail>
+        <section id="actor"> </section>
         <h3 class="actor__filmography"> Filmography</h3>
         <div id="filmography">
 
         </div>
 
     </main>
-    <template id="actor-detail">
-        <section class="container actor__detail">
-
-            <figure class="actor-detail__image">
-                <slot name="actor-image"></slot>
-            </figure>
-
-            <section class="actor-detail__grid">
-                <div>
-                    <h2>
-                        <slot name="actor-name"> </slot>
-                    </h2>
-
-                    <p>
-                        <slot name="actor-DOB"></slot>
-                    </p>
-                    <p class="actor-detail__biography">
-                        <slot name="actor-biography"> </slot>
-                    </p>
-                    <slot name="actor-name"> </slot>
-                </div>
-
-            </section>
-        </section>
-
-
-    </template>
-    <template id="actor-film-list">
-        <section>
-            <h4 class="actor-film__year">
-                <slot name="actor-film-year">
-                </slot>
-            </h4>
-            <slot name="films"></slot>
-        </section>
-        <style>
-            .actor-film__year {
-                background-color: #dddddd5e;
-                padding: 0.8em;
-                font-size: 1.3em;
-                margin: 0;
-            }
-        </style>
-    </template>
-    <template id="actor-film-detail">
-        <section>
-            <ul class="actor-film__list">
-                <li>
-
-                    Title :<slot name="film-title"></slot>
-
-                </li>
-                <li>
-
-                    Year :<slot name="film-year"></slot>
-
-                </li>
-                <li>
-
-                    Character :<slot name="film-character"></slot>
-
-                </li>
-            </ul>
-
-        </section>
-        <style>
-            .actor-film__list {
-                list-style-type: none;
-                padding-left: 0.7em;
-                color: #515151;
-                font-size: 1.1em;
-            }
-        </style>
-    </template>
 
 
     <script type="module" src="assets/scripts/actor.js"></script>

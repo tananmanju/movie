@@ -5,5 +5,6 @@ export default {
     LATEST: 'movie/now_playing',
     TRENDING: 'trending/movie/week',
     POPULAR: 'movie/popular',
-    MOVIE: 'movie/'
+    MOVIE: 'movie/',
+    ACTOR :'person/'
 }

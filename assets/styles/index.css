@@ -201,6 +201,8 @@ actor-film-detail {
 
 .actor__filmography {
     font-size: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1em;
 }
 
 .actor-image {

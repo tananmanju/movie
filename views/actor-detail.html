@@ -1,0 +1,75 @@
+<template id="actor-detail">
+    <link rel="stylesheet" href="/assets/styles/actor.css"/>
+        <section class="container actor__detail">
+
+            <figure class="actor-detail__image">
+                <slot name="actor-image"></slot>
+            </figure>
+
+            <section class="actor-detail__grid">
+                <div>
+                    <h2>
+                        <slot name="actor-name"> </slot>
+                    </h2>
+
+                    <p>
+                        <slot name="actor-DOB"></slot>
+                    </p>
+                    <p class="actor-detail__biography">
+                        <slot name="actor-biography"> </slot>
+                    </p>
+                    <slot name="actor-name"> </slot>
+                </div>
+
+            </section>
+        </section>
+
+
+    </template>
+    <template id="actor-film-list">
+        <section>
+            <h4 class="actor-film__year">
+                <slot name="actor-film-year">
+                </slot>
+            </h4>
+            <slot name="films"></slot>
+        </section>
+        <style>
+            .actor-film__year {
+                background-color: #dddddd5e;
+                padding: 0.8em;
+                font-size: 1.3em;
+                margin: 0;
+            }
+        </style>
+    </template>
+    <template id="actor-film-detail">
+        <section>
+            <ul class="actor-film__list">
+                <li>
+
+                    Title :<slot name="film-title"></slot>
+
+                </li>
+                <li>
+
+                    Year :<slot name="film-year"></slot>
+
+                </li>
+                <li>
+
+                    Character :<slot name="film-character"></slot>
+
+                </li>
+            </ul>
+
+        </section>
+        <style>
+            .actor-film__list {
+                list-style-type: none;
+                padding-left: 0.7em;
+                color: #515151;
+                font-size: 1.1em;
+            }
+        </style>
+    </template>

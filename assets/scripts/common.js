@@ -16,9 +16,9 @@ export function addHeader() {
     document.querySelector("#header-section").appendChild(header);
 }
 
-export function getTemplate(id) {
+export function getTemplate(id, templateId = id) {
     const link = document.querySelector(`link#${id}`).import;
-    return link.querySelector(`#${id}`);
+    return link.querySelector(`#${templateId}`);
 }
 
 export function attachCarousel(target, dataSet, {id, title, genres}) {

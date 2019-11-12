@@ -1,61 +1,7 @@
 <template id="carousel-template">
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css"/>
-    <style>
-        .slider {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            margin: auto;
-            overflow-x: scroll;
-            overflow-y: hidden;
-        }
-
-        .slider::-webkit-scrollbar {
-            display: none;
-        }
-
-        .slide {
-            display: flex;
-            position: relative;
-            left: 0;
-            transition: 0.3s left ease-in-out;
-        }
-
-        .ctrl {
-            text-align: center;
-            margin-top: 5px;
-        }
-
-        .ctrl-btn {
-
-            background: transparent;
-            border: none;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            outline: none;
-            position: absolute;
-            top: 50%;
-            margin-top: -27.5px;
-        }
-
-        .pro-prev {
-            left: -50px;
-        }
-
-        .pro-next {
-            right: -50px;
-        }
-
-        #slider-parent {
-            position: relative;
-        }
-
-        #slider-parent .ctrl-btn .fa {
-            font-size: 50px;
-        }
-    </style>
-    <h2>
+    <link rel="stylesheet" href="/assets/styles/carousel.css"/>
+<h2>
         <slot name="title"></slot>
     </h2>
     <div id="slider-parent">

@@ -60,7 +60,7 @@
     max-height: 172px;
     overflow-y: auto;
 }
-@media only screen and (max-width:700px){
+@media only screen and (max-width:767px){
     .movie-modal__details {
         display: flex;
         flex-direction: column;

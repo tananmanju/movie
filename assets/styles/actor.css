@@ -23,3 +23,26 @@
                 max-height: 250px;
                 overflow-y: auto;
             }
+            @media only screen and (max-width:767px){
+                .actor__detail {
+                    display: flex;
+                    flex-direction: column;
+                }
+    
+                .actor-detail__image {
+                    width: 100%;
+                    text-align: center;
+                    margin-left: 0;
+                    margin-right: 0
+    
+                }
+    
+                .actor-detail__grid {
+                    width: 100%;
+                    background-color: #e3e3e354;
+                    padding: 1em;
+                    margin: 0;
+                    
+                }
+            
+            }

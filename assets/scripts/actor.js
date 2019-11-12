@@ -33,7 +33,6 @@ getActorFilmData().then(film => {
         let year = new Date(cast.release_date).getFullYear();
         if (isNaN(year)) continue;
         if (!map[year]) map[year] = [];
-        console.log("cast",cast);
         map[year].push(cast);
     }
     console.log(map);

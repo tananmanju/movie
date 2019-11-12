@@ -1,12 +1,15 @@
-import { getCarousel, productScroll } from './carousel.js';
-import { rating } from "./rating.js";
+
+import '/assets/scripts/carousel.js';
+import '/assets/scripts/card.js';
+import '/assets/scripts/rating.js';
+import '/assets/scripts/modal.js';
 
 //find the id from the url
 const urlParams = new URLSearchParams(window.location.search);
 const API_KEY = "8441a5264ec7146ab1efd03895169958";
 const movieId = urlParams.get('id');
 const movieImage_Base = "https://image.tmdb.org/t/p/original/";
-//fetch the single movie details 
+//fetch the single movie details
 function getMovieData() {
     return fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=8441a5264ec7146ab1efd03895169958&language=en-US&append_to_response=credits`)
         .then(response => {
@@ -35,7 +38,7 @@ getMovieData().then(movie => {
     movieDetail.innerHTML = `<span slot="movie-detail-title">${movie.title}</span>
  <img slot="movie-detail-image" src="${movieImage_Base + movie.backdrop_path}" cl1ass="movie-detail-posterimage" width="100%" />
  <span slot="movie-detail-description">${movie.overview}</span>
- <span slot="movie-genres">${movie.genres.map(genre => genre.name)}</span>
+ <span slot="movie-genres">${movie.genres.map(genre => genre.name).join(", ")}</span>
  <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`)}</span>
 <span slot="movie-director">${movie.credits.crew.find(actor => actor.job === "Director").name}</span></a>
  <span slot="movie-rating">${rating(movie.vote_average)}</span>`;
@@ -85,8 +88,6 @@ getGenres().then(genreData => {
 }).then(() => {
     console.log()
     productScroll("related-movie");
-}).catch((err) =>{
-    console.log("errr");
 })
 
 

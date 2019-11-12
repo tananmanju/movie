@@ -1,7 +1,8 @@
 @import url("variable.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("header.css");
+@import url("/assets/css/normalize.css");
+@import url("/assets/css/reset.css");
 
 body {
     width: 97%;
@@ -42,12 +43,13 @@ body {
 .card {
     margin-right: 10px;
     border: 1px solid #ddd;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
 }
+
 .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
 
 .card-image {
     width: 320px;
@@ -63,7 +65,8 @@ body {
     flex-direction: row;
     justify-content: space-between;
 }
-.fig-image{
+
+.fig-image {
     margin: 0;
 }
 
@@ -129,11 +132,13 @@ body {
 .navbar__list {
     padding: 12px 30px;
 }
+
 .navbar__list:nth-child(2) {
     color: #ffffff;
     opacity: 1;
     background: black;
-  }
+}
+
 .navbar__item {
     text-decoration: none;
     color: #999191;
@@ -144,29 +149,27 @@ body {
     opacity: 1;
     background: black;
 }
-.navbar__item--active{
-    color:#ffffff;
+
+.navbar__item--active {
+    color: #ffffff;
     background-color: black;
 }
-@media only screen and (max-width:600px){
+
+@media only screen and (max-width: 600px) {
     .navbar__menu {
-      
+
         display: flex;
         flex-direction: column;
-     
+
     }
 
 }
 
-.fas-heart{
-    color: red;
-}
-.show-more{
+.show-more {
     float: right;
 }
 
-
-movie-quick-view{
+movie-quick-view {
     position: fixed;
     z-index: 1;
     padding-top: 100px;
@@ -175,29 +178,36 @@ movie-quick-view{
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 
 }
 
-.films{
+.films {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-actor-film-detail{
+
+actor-film-detail {
     width: 25%;
 }
 
 
-.movie-cast-link{
+.movie-cast-link {
     text-decoration: none;
     font-size: 1.1em;
     color: #000000ba;
 }
-.actor__filmography{
+
+.actor__filmography {
     font-size: 1.5em;
 }
-.actor-image{
+
+.actor-image {
     object-fit: cover;
     width: 100%;
+}
+
+.red {
+    color: red;
 }

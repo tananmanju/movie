@@ -22,8 +22,9 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.movie-card__title{
-    width: 250px;
+
+.movie-card__title {
+    max-width: 250px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -31,12 +32,13 @@
 
 .movie-card__image {
     margin: 0;
+    width: 320px;
 }
 
 .movie-card__heart {
     font-size: 1.7em;
     margin-top: 0.5em;
-    
+
 }
 
 .fas-heart {

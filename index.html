@@ -3,42 +3,24 @@
 
 <head>
     <meta charset="UTF-8">
-    <base href="/tw-movie/training/" />
     <title>Movie App</title>
-    <script src="scripts/we">
-</script>
-    <link rel="stylesheet" href="assets/styles/index.css" />
-    <link rel="import" id="card" href="views/card_detail/card.html">
-    <link rel="import" id="quick-view" href="views/modal/modal.html">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="assets/styles/index.css"/>
+    <link rel="import" id="header" href="views/header.html"/>
+    <link rel="import" id="quick-view" href="views/modal.html"/>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
 </head>
-
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li class="navbar__list">
-                    <a class="navbar__item" href="/">Movie App</a>
-                </li>
-                <li class="navbar__list active">
-                    <a class=" navbar__item navbar__item--active" href="/">Home</a>
-                </li>
-                <li class="navbar__list">
-                    <a class="navbar__item" href="search.html">Explore</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
-    <main class="container">
-        <section>
-            <article id="latest-movies"></article>
-            <article id="trending-movies"></article>
-            <article id="popular-movies"></article>
-        </section>
-    </main>
+<section id="header-section"></section>
+<main class="container">
+    <section>
+        <article id="latest-movies"></article>
+        <article id="trending-movies"></article>
+        <article id="popular-movies"></article>
+    </section>
+</main>
 
-    <script type="module" src="index.js"></script>
-    <script type="module" src="assets/scripts/modal.js"></script>
-    </script>
+<script type="module" src="index.js"></script>
 </body>
 
 </html>

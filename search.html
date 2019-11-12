@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- <base href="/tw-movie/training/"/> -->
+    <title>Movie App</title>
+    <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="import" id="card" href="card/card.html">
+    <link rel="import" id="quick-view" href="views/quik-view.html">
+    <link rel="stylesheet" href="styles/search.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__list">
+                    <a class="navbar__item" href="/">Movie App</a>
+                </li>
+                <li class="navbar__list active">
+                    <a class=" navbar__item navbar__item--active" href="/">Home</a>
+                </li>
+                <li class="navbar__list">
+                    <a class="navbar__item" href="search.html">Explore</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="search-result__form">
+            <form name="search" id="search" class="card-serach__form">
+                <input type='text' name="search_term" id='link_id' value="bala" class="card-serach__field" placeholder="SEARCH">
+                <button type='submit' id='link_str' value='Search' class="card-search__button">  <i class="fa fa-search search__font-size" aria-hidden="true"></i> </button>
+            </form>
+        </section>
+        <section>
+            <h2>
+                Results
+                </h2>
+            </section>
+
+        <section id="search-items" class="search__card">
+
+        </section>
+
+    </main>
+
+    <!-- <script type="module" src="index.js"></script> -->
+    <script type="module" src="scripts/modal.js"></script>
+    <script type="module" src="scripts/search.js"></script>
+</body>
+
+</html>

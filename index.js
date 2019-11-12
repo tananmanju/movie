@@ -1,72 +1,29 @@
 "use strict";
-import { productScroll } from "./assets/scripts/carousel.js";
-import { getCarousel } from "./assets/scripts/carousel.js";
 
-import API from './assets/scripts/apis.js';
-import URLS from './assets/scripts/api_urls.js';
+import {addHeader, attachCarousel, resolveGenres, supportsImports} from "./assets/scripts/common.js";
+import API from './assets/scripts/api.js';
+import VARIABLES from './assets/scripts/variables.js';
+import './assets/scripts/carousel.js';
+import './assets/scripts/card.js';
+import './assets/scripts/rating.js';
+import './assets/scripts/modal.js';
 
-let genres;
-
-function getGenres() {
-    return API.call(URLS.genres)
-}
-
-function getLatestMovies() {
-    return API.call(URLS.latestMovies, { language: 'en-US', include_adult: false })
-}
-
-function getTrendingMovies() {
-    return API.call(URLS.trendingMovies);
-}
-
-function getPopularMovies() {
-    return API.call(URLS.popularMovies, { language: 'en-US', page: 1 })
-}
-function getQuikModal(id) {
-    return API.call(URLS.getMovie + id, { language: 'en-US', append_to_response: 'credits' });
-}
-
-const all = [];
-all.push(getGenres())
-all.push(getLatestMovies());
-all.push(getTrendingMovies());
-all.push(getPopularMovies());
-console.log(all);
-
-Promise.all(all).then(data => {
-    console.log(data);
-    const genreData = data.shift();
-    genres = genreData.genres.reduce(function (acc, item) {
-        acc[item.id] = item.name;
-        return acc;
-    }, {});
-
-
-    const latest = data.shift();
-    const trending = data.shift();
-    const popular = data.shift();
-
-    document.getElementById("latest-movies").innerHTML = getCarousel("latest", {
-        title: "Latest",
-        movies: latest.results,
-        genres: genres
+if (supportsImports()) {
+    addHeader();
+    init()
+} else {
+    window.addEventListener('HTMLImportsLoaded', function (e) {
+        addHeader();
+        init()
     });
-    document.getElementById("trending-movies").innerHTML = getCarousel("trending", {
-        title: "Trending",
-        movies: trending.results,
-        genres
-    });
-    document.getElementById("popular-movies").innerHTML = getCarousel("popular", {
-        title: "Most Watched",
-        movies: popular.results,
-        genres
-    });
-    return Promise.resolve();
-}).then(() => {
-    productScroll("latest");
-    productScroll("trending");
-    productScroll("popular");
-}).catch(err => {
-    console.error(err)
-});
+}
 
+async function init() {
+    const genres = await API.call(VARIABLES.GENRES).then(resolveGenres);
+    const latestMovies = await API.call(VARIABLES.LATEST, {include_adult: false});
+    const trendingMovies = await API.call(VARIABLES.TRENDING);
+    const popularMovies = await API.call(VARIABLES.POPULAR);
+    attachCarousel('latest-movies', latestMovies.results, {id: 'latest', title: 'Latest', genres});
+    attachCarousel('trending-movies', trendingMovies.results, {id: 'trending', title: 'Trending', genres});
+    attachCarousel('popular-movies', popularMovies.results, {id: 'popular', title: 'Popular', genres});
+}

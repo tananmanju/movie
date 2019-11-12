@@ -43,7 +43,7 @@ customElements.define("movie-card",
             //link card css file
             const linkElement = document.createElement("link");
             linkElement.setAttribute('rel', 'stylesheet');
-            linkElement.setAttribute('href', 'styles/card.css');
+            linkElement.setAttribute('href', 'assets/styles/card.css');
             shadowRoot.appendChild(linkElement);
 
 

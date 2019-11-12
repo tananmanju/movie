@@ -54,7 +54,7 @@ customElements.define("movie-detail",
             //link movie css file
             const linkElement = document.createElement("link");
             linkElement.setAttribute('rel', 'stylesheet');
-            linkElement.setAttribute('href', 'styles/movie.css');
+            linkElement.setAttribute('href', 'assets/styles/movie.css');
             shadowRoot.appendChild(linkElement);
 
         }

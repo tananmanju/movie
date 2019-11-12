@@ -1,7 +1,7 @@
 @import url("variable.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-@import url("/header/header.css");
+@import url("header.css");
 
 body {
     width: 97%;
@@ -196,4 +196,8 @@ actor-film-detail{
 }
 .actor__filmography{
     font-size: 1.5em;
+}
+.actor-image{
+    object-fit: cover;
+    width: 100%;
 }

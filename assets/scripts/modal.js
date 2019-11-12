@@ -13,7 +13,7 @@ customElements.define("movie-quick-view",
             //link card css file
             const linkElement = document.createElement("link");
             linkElement.setAttribute('rel', 'stylesheet');
-            linkElement.setAttribute('href', 'styles/modal.css');
+            linkElement.setAttribute('href', 'assets/styles/modal.css');
             shadowRoot.appendChild(linkElement);
 
             //close the modal

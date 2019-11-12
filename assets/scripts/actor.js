@@ -20,7 +20,7 @@ function getActorFilmData() {
 getActorData().then(actor => {
     console.log(actor);
     let actorDetail = document.getElementsByTagName('actor-detail')[0];
-    actorDetail.innerHTML = `<img slot="actor-image" src="${actorImage_Base + actor.profile_path}" width="auto" height="400"/>
+    actorDetail.innerHTML = `<img slot="actor-image" class="actor-image" src="${actorImage_Base + actor.profile_path}" width="auto" height="400"/>
     <span slot="actor-name">${actor.name}</span>
     <span slot="actor-DOB">${actor.birthday}</span>
     <span slot="actor-biography">${actor.biography}</span>`;
@@ -86,7 +86,7 @@ customElements.define('actor-detail',
             //link movie css file
             const linkElement = document.createElement("link");
             linkElement.setAttribute('rel', 'stylesheet');
-            linkElement.setAttribute('href', 'styles/actor.css');
+            linkElement.setAttribute('href', 'assets/styles/actor.css');
             shadowRoot.appendChild(linkElement);
 
         }

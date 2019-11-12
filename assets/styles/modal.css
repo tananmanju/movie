@@ -66,5 +66,10 @@
         flex-direction: column;
         padding: 10px;
     }
+    .movie__quick-view{
+        width: 90%;
+        height: 63vh;
+        overflow-y: auto;
+    }
 
 }

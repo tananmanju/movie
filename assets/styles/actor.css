@@ -5,13 +5,15 @@
             }
 
             .actor-detail__image {
-                width: 38%;
+                width: 25%;
                 text-align: center;
+                margin-left: 0;
+                margin-right: 0
 
             }
 
             .actor-detail__grid {
-                width: 62%;
+                width: 75%;
                 background-color: #e3e3e354;
                 padding: 1em;
                 margin: 1em;

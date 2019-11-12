@@ -85,6 +85,8 @@ getGenres().then(genreData => {
 }).then(() => {
     console.log()
     productScroll("related-movie");
+}).catch((err) =>{
+    console.log("errr");
 })
 
 

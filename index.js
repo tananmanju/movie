@@ -1,41 +1,29 @@
 "use strict";
 import { productScroll } from "./assets/scripts/carousel.js";
 import { getCarousel } from "./assets/scripts/carousel.js";
-const API_KEY = "680d339ae650bec42897ef2b4401d0de";
 
+import API from './assets/scripts/apis.js';
+import URLS from './assets/scripts/api_urls.js';
 
 let genres;
 
 function getGenres() {
-    return fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
-        .then(res => res.json())
+    return API.call(URLS.genres)
 }
 
 function getLatestMovies() {
-    return fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&include_adult=false`)
-        .then(response => {
-            return response.json();
-        })
+    return API.call(URLS.latestMovies, { language: 'en-US', include_adult: false })
 }
 
 function getTrendingMovies() {
-    return fetch(`https://api.themoviedb.org/3/trending/movie/week?api_key=${API_KEY}`)
-        .then(response => {
-            return response.json();
-        })
+    return API.call(URLS.trendingMovies);
 }
 
 function getPopularMovies() {
-    return fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
-        .then(response => {
-            return response.json();
-        })
+    return API.call(URLS.popularMovies, { language: 'en-US', page: 1 })
 }
 function getQuikModal(id) {
-    return fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=8441a5264ec7146ab1efd03895169958&language=en-US&append_to_response=credits`)
-        .then(response => {
-            return response.json();
-        });
+    return API.call(URLS.getMovie + id, { language: 'en-US', append_to_response: 'credits' });
 }
 
 const all = [];

@@ -23,6 +23,7 @@ async function init() {
     let actorDetail = document.createElement('actor-detail');
     actorDetail.innerHTML = `<img slot="actor-image" class="actor-image" src="${resolveImagePath(actor.profile_path)}" width="auto" height="400"/>
                 <span slot="actor-name">${actor.name}</span>
+                <span slot="actor-popularity"> ${Math.floor(actor.popularity)}</span>
                 <span slot="actor-DOB">${actor.birthday}</span>
                 <span slot="actor-biography">${actor.biography}</span>`;
 

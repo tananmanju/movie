@@ -8,7 +8,7 @@ body {
     width: 97%;
     margin: 0 auto;
     border: 1px solid #636363;
-    font-family: 'Roboto';
+    font-family :var(--font-family);
 }
 
 

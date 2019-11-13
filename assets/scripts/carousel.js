@@ -16,7 +16,9 @@ class MovieCarousel extends HTMLElement {
     connectedCallback() {
         const itemsTemplates = this.items.map(movie => {
             return `<movie-card id="${movie.id}">
-                         <img slot="movie-image" src="${resolveImagePath(movie.backdrop_path)}"  alt="movie-image" class="card-image" title="movie-image" />
+            ${movie.backdrop_path ? `<img slot="movie-image" src="${resolveImagePath(movie.backdrop_path)}"  alt="movie-image" class="card-image"
+              title="movie-image" />` : `<img slot="movie-image" src="assets/images/320x170.png"  alt="movie-image" class="card-image"
+              title="movie-image" />`}
                          <span slot="movie-title">${movie.title}</span>
                          ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart red card-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart card-heart"></i>'}
                          <span slot="movie-genres">${movie.genre_ids.map(id => this.genres[id])}</span>

@@ -23,6 +23,19 @@
                 max-height: 250px;
                 overflow-y: auto;
             }
+            .actor-detail__meter{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            .actor-popularity__font-size{
+                font-size: 1.4em;
+                font-weight: normal;;
+            }
+            .actor-detail__meter-section{
+                width: 19%;
+                text-align: right
+            }
             @media only screen and (max-width:767px){
                 .actor__detail {
                     display: flex;

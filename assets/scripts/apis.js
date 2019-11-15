@@ -6,6 +6,7 @@ export default {
         const options = { api_key: API_KEY, ...params };
         var queryString = Object.keys(options).map(key => key + '=' + options[key]).join('&');
         const url = `${BASE_URL}/${method}?${queryString}`;
+        console.log("url",url);
         return fetch(url).then(response => response.json())
     }
 }

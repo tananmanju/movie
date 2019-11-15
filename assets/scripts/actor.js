@@ -30,10 +30,12 @@ async function init() {
     document.getElementById('actor').appendChild(actorDetail);
 
     const movies = await API.call(VARIABLES.ACTOR + actorID + '/movie_credits');
+    
 
     const map = {};
     for (const cast of movies.cast) {
         let year = new Date(cast.release_date).getFullYear();
+        console.log(year);
         if (isNaN(year)) continue;
         if (!map[year]) map[year] = [];
         map[year].push(cast);

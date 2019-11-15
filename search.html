@@ -6,29 +6,16 @@
     <!-- <base href="/tw-movie/training/"/> -->
     <title>Movie App</title>
     <link rel="stylesheet" href="assets/styles/index.css" />
-    <link rel="import" id="card" href="card/card.html">
-    <link rel="import" id="quick-view" href="views/quik-view.html">
-    <link rel="stylesheet" href="styles/search.css">
+    <!-- <link rel="import" id="card" href="card/card.html">
+    <link rel="import" id="quick-view" href="views/quik-view.html"> -->
+    <link rel="stylesheet" href="assets/styles/search.css">
+    <link rel="import" id="header" href="views/header.html">
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <header class="header">
-        <nav class="navbar">
-            <ul class="navbar__menu">
-                <li class="navbar__list">
-                    <a class="navbar__item" href="/">Movie App</a>
-                </li>
-                <li class="navbar__list active">
-                    <a class=" navbar__item navbar__item--active" href="/">Home</a>
-                </li>
-                <li class="navbar__list">
-                    <a class="navbar__item" href="search.html">Explore</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+    <section id="header-section"></section>
     <main class="container">
         <section class="search-result__form">
             <form name="search" id="search" class="card-serach__form">
@@ -49,8 +36,8 @@
     </main>
 
     <!-- <script type="module" src="index.js"></script> -->
-    <script type="module" src="scripts/modal.js"></script>
-    <script type="module" src="scripts/search.js"></script>
+    <!-- <script type="module" src="scripts/modal.js"></script> -->
+    <script type="module" src="./assets/scripts/search.js"></script>
 </body>
 
 </html>

@@ -6,5 +6,6 @@ export default {
     TRENDING: 'trending/movie/week',
     POPULAR: 'movie/popular',
     MOVIE: 'movie/',
-    ACTOR :'person/'
+    ACTOR :'person/',
+    SEARCH:'search/movie',
 }

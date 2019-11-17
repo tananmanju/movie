@@ -1,4 +1,4 @@
-import {loadTemplate, getTemplate, resolveImagePath} from "./common.js";
+import { loadTemplate, getTemplate, resolveImagePath } from "./common.js";
 import API from '../scripts/api.js';
 import VARIABLES from '../scripts/variables.js';
 
@@ -8,7 +8,7 @@ loadTemplate(templateId, 'views/card.html');
 class MovieCard extends HTMLElement {
     constructor() {
         super();
-        let shadowRoot = this.attachShadow({mode: 'open'});
+        let shadowRoot = this.attachShadow({ mode: 'open' });
         const template = getTemplate(templateId);
         shadowRoot.appendChild(template.content.cloneNode(true));
     }
@@ -17,7 +17,7 @@ class MovieCard extends HTMLElement {
         const showModalElement = this.shadowRoot.getElementById("movie-card-container");
         let quickView;
         showModalElement.addEventListener('click', event => {
-            API.call(VARIABLES.MOVIE + this.getAttribute("id"), {append_to_response: 'credits'})
+            API.call(VARIABLES.MOVIE + this.getAttribute("id"), { append_to_response: 'credits' })
                 .then(response => {
                     console.log(response);
                     document.getElementsByTagName('movie-quick-view').length && document.body.removeChild(document.getElementsByTagName('movie-quick-view')[0]);

@@ -17,12 +17,20 @@
 <body>
     <section id="header-section"></section>
     <main class="container">
-        <section class="search-result__form">
+        <section class="search-result">
+            <div class="search-result__form">
             <form name="search" id="search" class="card-serach__form">
-                <input type='text' name="search_term" id='link_id' value="bala" class="card-serach__field" placeholder="SEARCH">
+                <input type='text' name="search_term" autocomplete="off" id='link_id' value="" class="card-serach__field" placeholder="Search for movies,actors,genre..">
+                
                 <button type='submit' id='link_str' value='Search' class="card-search__button">  <i class="fa fa-search search__font-size" aria-hidden="true"></i> </button>
             </form>
+            </div>
+<div class="search-result__form">
+
+            <input type="range" id='popularity'/>
+            </div>
         </section>
+
         <section>
             <h2>
                 Results

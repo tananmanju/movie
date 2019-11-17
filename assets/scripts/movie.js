@@ -4,7 +4,8 @@ import VARIABLES from './variables.js';
 import "./rating.js";
 import "./movie-detail.js";
 import "./carousel.js";
-import "./card.js"
+import "./card.js";
+import "./modal.js"
 if (supportsImports()) {
     addHeader();
     init();
@@ -24,8 +25,9 @@ async function init() {
     API.call(VARIABLES.MOVIE + movieId, { append_to_response: "credits" })
         .then(movie => {
             let movieDetail = document.createElement("movie-detail");
+            movieDetail.movie = movie;
             movieDetail.innerHTML = `<span slot="movie-detail-title">${movie.title}</span>
-      <img slot="movie-detail-image" src="${resolveImagePath(movie.backdrop_path, 'original')}" class="movie-detail-posterimage" width="100%" />
+      <img slot="movie-detail-image" src="${resolveImagePath(movie.backdrop_path, 'original')}" class="movie-detail-posterimage" />
     <span slot="movie-detail-description">${movie.overview}</span>
       <span slot="movie-genres">${movie.genres.map(genre => genre.name).join(", ")}</span>
      <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`)}</span>

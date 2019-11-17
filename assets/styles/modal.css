@@ -57,7 +57,7 @@
 }
 
 .movie-description--scroll {
-    max-height: 172px;
+    min-height: 200px;
     overflow-y: auto;
 }
 @media only screen and (max-width:767px){

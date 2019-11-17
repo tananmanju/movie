@@ -4,15 +4,15 @@
     flex-wrap: wrap;
 }
 .card-serach__form{
-    width: 50%;
+    
    
 
 }
 .card-serach__field{
     padding: 8px;
-    width: 55%;
     font-size: 1.3em;
     margin-right: -4px;
+    width: 60%;
 }
 
 .card-search__button{
@@ -24,7 +24,14 @@
     width: 10%;
     font-size: 1.3em;
 }
-.search-result__form{
+.search-result{
+    display: flex;
+    justify-content: space-between;
     margin-top: 4em;
     margin-bottom: 4em;
 }
+.search-result__form{
+    width: 50%;
+}
+    
+

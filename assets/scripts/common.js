@@ -6,7 +6,7 @@ export function resolveGenres(data) {
     }, {});
 }
 
-export function resolveImagePath(path,size = 'w500') {
+export function resolveImagePath(path, size = 'w500') {
     return `https://image.tmdb.org/t/p/${size}/${path}`
 }
 
@@ -17,11 +17,12 @@ export function addHeader() {
 }
 
 export function getTemplate(id, templateId = id) {
-    const link = document.querySelector(`link#${id}`).import;
-    return link.querySelector(`#${templateId}`);
+    const link = document.querySelector(`link#${id}`);
+    const content = link.import;
+    return content.querySelector(`#${templateId}`);
 }
 
-export function attachCarousel(target, dataSet, {id, title, genres}) {
+export function attachCarousel(target, dataSet, { id, title, genres }) {
     const carousel = document.createElement('movie-carousel');
     carousel.items = dataSet;
     carousel.genres = genres;
@@ -30,6 +31,7 @@ export function attachCarousel(target, dataSet, {id, title, genres}) {
 }
 
 export function loadTemplate(id, url) {
+    console.log("loadTemplate :: ", id, url);
     const link = document.createElement('link');
     link.rel = 'import';
     link.id = id;

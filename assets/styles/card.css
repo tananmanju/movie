@@ -1,6 +1,6 @@
 .movie__card {
     margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     border: 1px solid #ddd;
 }
 
@@ -47,4 +47,9 @@
 
 .movie-card__show-more {
     float: right;
+}
+.movie-card__genres{
+    word-break: break-all;
+    max-width: 276px;
+    min-height: 35px;
 }

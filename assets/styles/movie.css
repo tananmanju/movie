@@ -82,3 +82,11 @@
     right:3em;
     bottom:1em;
 }
+
+.figure-container{
+    position: relative;
+}
+
+.red {
+    color: red;
+}

@@ -15,7 +15,7 @@ customElements.define("movie-detail",
         }
         connectedCallback() {
             const favMovies = JSON.parse(localStorage.getItem('favMovies') || '[]');
-console.log(favMovies)
+            console.log(favMovies)
             if (favMovies.includes(this.movie.id)) {
                 this.shadowRoot.querySelector(".fa-heart").classList.add('red');
             }

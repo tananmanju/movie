@@ -35,7 +35,7 @@ async function init() {
     const map = {};
     for (const cast of movies.cast) {
         let year = new Date(cast.release_date).getFullYear();
-        console.log(year);
+        //console.log(year);
         if (isNaN(year)) continue;
         if (!map[year]) map[year] = [];
         map[year].push(cast);

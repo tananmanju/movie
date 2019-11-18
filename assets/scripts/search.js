@@ -1,58 +1,8 @@
-// const API_KEY = "8441a5264ec7146ab1efd03895169958";
-// import { getMovieItem } from "./card.js";
-// let genres = {};
-// function getGenres() {
-//     return fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`)
-//         .then(res => res.json())
-// }
-
-// getGenres().then(genreData => {
-//     genres = genreData.genres.reduce(function (acc, item) {
-//         acc[item.id] = item.name;
-//         return acc;
-//     }, {});
-// })
-
-// function link(ev) {
-//     console.log(ev)
-//     ev.preventDefault();
-//     let queryData = document.getElementById('link_id').value;
-//     console.log(queryData);
-//     return fetch(`https://api.themoviedb.org/3/search/movie?api_key=8441a5264ec7146ab1efd03895169958&language=en-US&query=${queryData}&page=1&include_adult=false`)
-//         .then(response => {
-//             return response.json();
-//         })
-//         .then(response => {
-//             console.log(response);
-//             let items = response.results.map(movie => {
-//                 if(movie.genre_ids){
-//                     movie.genres = movie.genre_ids.map(genre_id => {
-//                         return genres[genre_id]
-//                     });
-//                 }
-//                 else {
-//                     movie.genres = [];
-//                 }
-
-//                 return getMovieItem(movie)
-//             });
-
-//             document.getElementById("search-items").innerHTML = items.join("");
-//         });
-
-
-// }
-// const form = document.getElementById('search');
-// form.addEventListener("submit", link)
-
 import { addHeader, resolveImagePath, resolveGenres, supportsImports } from "./common.js";
 import API from '../scripts/api.js';
 import VARIABLES from '../scripts/variables.js';
 import "./card.js";
 import "./rating.js";
-// import "../../index.js";
-
-
 
 if (supportsImports()) {
     addHeader();
@@ -66,11 +16,11 @@ if (supportsImports()) {
     });
 }
 
-async function resolveData(){
-    if(localStorage.getItem('movieData')) return;
+async function resolveData() {
+    if (localStorage.getItem('movieData')) return;
     const genresResponse = await API.call(VARIABLES.GENRES)
     const genres = resolveGenres(genresResponse);
-    console.log("genreds",genres);
+    console.log("genreds", genres);
     const latestMovies = await API.call(VARIABLES.LATEST, { include_adult: false });
     const trendingMovies = await API.call(VARIABLES.TRENDING);
     const popularMovies = await API.call(VARIABLES.POPULAR);
@@ -92,23 +42,47 @@ async function resolveData(){
 
 async function init(event) {
     await resolveData();
-    console.log(event);
     if (event && event.type === "submit") event.preventDefault();
     let queryData = document.getElementById('link_id').value;
-    if (event && event.type === "keyup" && event.keyCode >= 65 && event.keyCode <= 90){
+    if (event && event.type === "keyup" && event.keyCode >= 65 && event.keyCode <= 90) {
         queryData = event.target.value;
     }
     let popularity = document.getElementById('popularity').value;
-    console.log(queryData, popularity);
-    //const genres = await API.call(VARIABLES.GENRES).then(resolveGenres);
-    //const searchData = await API.call(VARIABLES.SEARCH,{query:queryData});
-    //console.log(searchData.results);
+
     const allMovies = JSON.parse(localStorage.getItem('movieData'));
+
+    //action -> movies with genres action
+    //act -> movies startswith title
+
+
     const genres = JSON.parse(localStorage.getItem('movieGenres'));
+
+    const values = Object.values(genres);
+    const keys = Object.keys(genres);
+
+    const g = {};
+    for (let i = 0; i < values.length; i++) {
+        g[values[i].toLowerCase()] = keys[i];
+    }
+
     let selectedMovies = allMovies.filter(function (item) {
-        return item.title.toLowerCase().startsWith(queryData.toLowerCase()) && item.popularity >= popularity;
+
+        const query = queryData.toLowerCase();
+        const title = item.title.toLowerCase();
+        //queryData is genres or not
+        // item.genres = item.genre_ids.map(id=>genres[id]).join(",")
+        if (g[query]) {
+            //querydata is genres
+            //get genreid
+            const selectedGenreId = g[query];
+            //movies with genreid
+            return item.genre_ids.includes(parseInt(selectedGenreId));
+        } else {
+            return title.startsWith(query) && parseFloat(item.vote_average) >= popularity;
+        }
     });
-    // if (!queryData) selectedMovies = allMovies;
+    let searchCount = document.getElementById("search-result-count");
+    searchCount.innerHTML = `Results Count - ${selectedMovies.length}`
     document.getElementById("search-items").innerHTML = '';
 
     setTimeout(() => {
@@ -136,7 +110,5 @@ const range = document.querySelector('input[type=range]');
 range.addEventListener("change", init);
 const userInput = document.querySelector('#link_id');
 userInput.addEventListener("keyup", init);
-//  const dataValue = JSON.parse(localStorage.getItem('movieData'));
-//     console.log("datavalue1",dataValue);
 
 

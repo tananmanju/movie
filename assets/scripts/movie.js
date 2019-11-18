@@ -29,8 +29,8 @@ async function init() {
             movieDetail.innerHTML = `<span slot="movie-detail-title">${movie.title}</span>
       <img slot="movie-detail-image" src="${resolveImagePath(movie.backdrop_path, 'original')}" class="movie-detail-posterimage" />
     <span slot="movie-detail-description">${movie.overview}</span>
-      <span slot="movie-genres">${movie.genres.map(genre => genre.name).join(", ")}</span>
-     <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`)}</span>
+      <span slot="movie-genres">${movie.genres.map(genre => genre.name).join(",  ")}</span>
+     <span slot="movie-cast">${movie.credits.cast.map(actor => `<a href="actor.html?id=${actor.id}" class="movie-cast-link">${actor.name}</a>`).join(",  ")}</span>
      <span slot="movie-director">${movie.credits.crew.find(actor => actor.job === "Director").name}</span></a>
    <movie-rating slot="movie-rating"  rating="${movie.vote_average}"></movie-rating>`;
 

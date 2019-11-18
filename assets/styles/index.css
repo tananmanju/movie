@@ -154,6 +154,10 @@ body {
     color: #ffffff;
     background-color: black;
 }
+.active ,.navbar__item:hover{
+    color: #ffffff;
+    background-color: black;
+}
 
 @media only screen and (max-width: 600px) {
     .navbar__menu {
@@ -196,7 +200,7 @@ actor-film-detail {
 .movie-cast-link {
     text-decoration: none;
     font-size: 1.1em;
-    color: #000000ba;
+    color:#000000e6;
 }
 
 .actor__filmography {
@@ -217,4 +221,8 @@ actor-film-detail {
 img.movie-detail-posterimage{
    width: 100%;
    height: 80vh; 
+}
+.search-result__heading{
+    font-size: 2em;
+    padding-bottom: 1.3em;
 }

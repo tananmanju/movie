@@ -1,7 +1,9 @@
 
 export function resolveGenres(data) {
+    console.log(data);
     return data.genres.reduce(function (acc, item) {
         acc[item.id] = item.name;
+        console.log(acc);
         return acc;
     }, {});
 }

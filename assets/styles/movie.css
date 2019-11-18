@@ -65,8 +65,9 @@
 .movie-list__description {
     margin-top: 5px;
     width: 78%;
-    overflow: auto;
-    max-height: 50px;
+    min-height: 20px;
+    max-height: 70px;
+    overflow-y: auto;
 }
 .movie-banner__favorite{
     padding: 18px;
@@ -89,4 +90,19 @@
 
 .red {
     color: red;
+}
+
+/* responsive design */
+
+@media only screen and (max-width:767px) {
+    .movie__description {
+        display: flex;
+        flex-direction: column;
+
+    }
+    .movie__heading {
+        width: 100%;
+        padding: 1em;
+    }
+
 }

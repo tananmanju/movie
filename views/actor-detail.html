@@ -40,7 +40,7 @@
 
 </template>
 <template id="actor-film-list">
-    <section>
+    <section class="actor-film__container">
         <h4 class="actor-film__year">
             <slot name="actor-film-year">
             </slot>
@@ -52,8 +52,12 @@
             background-color: #dddddd5e;
             padding: 0.8em;
             font-size: 1.6em;
-            margin-top: 1em;
+            margin-top: 0;
             margin-bottom: 1em;
+        }
+        .actor-film__container{
+            border: 1px solid #ddd;
+            margin-bottom: 2em;
         }
     </style>
 </template>

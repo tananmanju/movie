@@ -44,12 +44,16 @@ async function resolveData() {
 
 async function init(event) {
     await resolveData();
-    
+    console.log(event)
     if (event && event.type === "submit") event.preventDefault();
     let queryData = document.getElementById('search-value').value;
     if (event && event.type === "keyup" && event.keyCode >= 65 && event.keyCode <= 90) {
         queryData = event.target.value;
     }
+    // if (event && event.type === "keyup" && event.keyCode == 13) {
+    //     queryData = event.target.value;
+    // }
+    
     let popularity = document.getElementById('popularity').value;
 
     const allMovies = JSON.parse(localStorage.getItem('movieData'));
@@ -68,12 +72,15 @@ async function init(event) {
         genredData[values[i].toLowerCase()] = keys[i];
     }
 
+
+    console.log("query",queryData);
     let selectedMovies = allMovies.filter(function (item) {
 
         const query = queryData.toLowerCase();
         const title = item.title.toLowerCase();
         //queryData is genres or not
-       
+        // console.log("query",genredData[query]);
+        // console.log("title",title);
         if (genredData[query]) {
             //querydata is genres
             //get genreid
@@ -84,13 +91,16 @@ async function init(event) {
             return title.startsWith(query) && parseFloat(item.vote_average) >= popularity;
         }
     });
+    console.log(selectedMovies)
     //Show Total Result Score
     let searchCount = document.getElementById("search-result-count");
     searchCount.innerHTML = `Results Count - ${selectedMovies.length}`
-    document.getElementById("search-items").innerHTML = '';
+    
     //Show Search Card
    
     setTimeout(() => {
+        document.getElementById("search-items").innerHTML = '';
+        console.log("timeout",selectedMovies)
         for (let values of selectedMovies) {
             let elementData = document.createElement("movie-card");
             elementData.innerHTML = ` ${values.backdrop_path ? `<img slot="movie-image" src="${resolveImagePath(values.backdrop_path)}"  alt="movie-image" class="card-image"
@@ -109,6 +119,7 @@ async function init(event) {
 
 
 }
+
 //Add Events
 const form = document.getElementById('search');
 form.addEventListener("submit", init);

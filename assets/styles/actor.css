@@ -20,9 +20,8 @@
 }
 
 .actor-detail__biography {
-    max-height: 250px;
+    max-height: 190px;
     overflow-y: auto;
-    min-height: 220px
 }
 .actor-detail__meter{
     display: flex;

@@ -28,7 +28,7 @@ async function init() {
     const trendingMovies = await API.call(VARIABLES.TRENDING);
     const popularMovies = await API.call(VARIABLES.POPULAR);
 
-    // console.log(allMoviesData);
+    
     //Adding the Carousel Function
     attachCarousel('latest-movies', latestMovies.results, { id: 'latest', title: 'Latest', genres });
     attachCarousel('trending-movies', trendingMovies.results, { id: 'trending', title: 'Trending', genres });

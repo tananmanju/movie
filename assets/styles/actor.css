@@ -22,6 +22,7 @@
 .actor-detail__biography {
     max-height: 190px;
     overflow-y: auto;
+    min-height: 170px
 }
 .actor-detail__meter{
     display: flex;
@@ -29,12 +30,19 @@
     justify-content: space-between;
 }
 .actor-popularity__font-size{
-    font-size: 1.4em;
-    font-weight: normal;
+    font-size: 1.5em;
+    font-weight: 900;
 }
 .actor-detail__meter-section{
-    width: 19%;
-    text-align: right
+    width: 15%;
+    display: inline-flex;
+    float: right;
+}
+.actor-detail__meter-rating{
+    margin: 0;
+    font-weight: 400;
+    margin-left: 0.3em;
+    text-align: center;
 }
 @media only screen and (max-width:767px){
     .actor__detail {

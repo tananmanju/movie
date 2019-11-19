@@ -200,7 +200,8 @@ actor-film-detail {
 .movie-cast-link {
     text-decoration: none;
     font-size: 1.1em;
-    color:#000000e6;
+    color: #000000e6;
+    line-height: 1.4em;
 }
 
 .actor__filmography {

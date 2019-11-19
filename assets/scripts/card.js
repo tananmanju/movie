@@ -12,14 +12,13 @@ class MovieCard extends HTMLElement {
         const template = getTemplate(templateId);
         shadowRoot.appendChild(template.content.cloneNode(true));
     }
-
+   
     connectedCallback() {
         const showModalElement = this.shadowRoot.getElementById("movie-card-container");
         let quickView;
         showModalElement.addEventListener('click', event => {
             API.call(VARIABLES.MOVIE + this.getAttribute("id"), { append_to_response: 'credits' })
                 .then(response => {
-                    console.log(response);
                     document.getElementsByTagName('movie-quick-view').length && document.body.removeChild(document.getElementsByTagName('movie-quick-view')[0]);
                     quickView = document.createElement('movie-quick-view');
                     quickView.innerHTML = `<span slot="movie-quick-title">${response.title}</span>

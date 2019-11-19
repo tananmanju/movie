@@ -60,17 +60,17 @@
 <template id="actor-film-detail">
     <section>
         <ul class="actor-film__list">
-            <li>
+            <li class="actor-film__item">
 
                <span> Title :</span><slot name="film-title"></slot>
 
             </li>
-            <li>
+            <li class="actor-film__item">
 
                <span> Year :</span><slot name="film-year"></slot>
 
             </li>
-            <li>
+            <li class="actor-film__item">
 
                <span> Character :</span><slot name="film-character"></slot>
 
@@ -84,6 +84,9 @@
             padding-left: 0.7em;
             color: #515151;
             font-size: 1.1em;
+        }
+        .actor-film__item{
+            line-height: 1.5em;
         }
     </style>
 </template>

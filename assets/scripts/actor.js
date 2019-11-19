@@ -1,4 +1,4 @@
-import {addHeader, resolveImagePath, supportsImports} from "./common.js";
+import { addHeader, resolveImagePath, supportsImports, searchParamUrl } from "./common.js";
 import API from './api.js';
 import VARIABLES from './variables.js';
 import './actor-detail.js';
@@ -14,11 +14,8 @@ if (supportsImports()) {
     });
 }
 
-
 async function init() {
-    const urlActor = new URLSearchParams(window.location.search);
-    const actorID = urlActor.get('id');
-
+    const actorID = searchParamUrl();
     const actor = await API.call(VARIABLES.ACTOR + actorID);
     let actorDetail = document.createElement('actor-detail');
     actorDetail.innerHTML = `<img slot="actor-image" class="actor-image" src="${resolveImagePath(actor.profile_path)}" width="auto" height="400"/>
@@ -30,7 +27,7 @@ async function init() {
     document.getElementById('actor').appendChild(actorDetail);
 
     const movies = await API.call(VARIABLES.ACTOR + actorID + '/movie_credits');
-    
+
 
     const map = {};
     for (const cast of movies.cast) {

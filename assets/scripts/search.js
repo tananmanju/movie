@@ -4,6 +4,7 @@ import VARIABLES from '../scripts/variables.js';
 import "./card.js";
 import "./rating.js";
 
+
 if (supportsImports()) {
     addHeader();
     init();
@@ -38,12 +39,14 @@ async function resolveData() {
 
     localStorage.setItem('movieData', JSON.stringify(movieArray));
     localStorage.setItem('movieGenres', JSON.stringify(genres));
+    return Promise.resolve();
 }
 
 async function init(event) {
     await resolveData();
+    
     if (event && event.type === "submit") event.preventDefault();
-    let queryData = document.getElementById('link_id').value;
+    let queryData = document.getElementById('search-value').value;
     if (event && event.type === "keyup" && event.keyCode >= 65 && event.keyCode <= 90) {
         queryData = event.target.value;
     }
@@ -60,9 +63,9 @@ async function init(event) {
     const values = Object.values(genres);
     const keys = Object.keys(genres);
 
-    const g = {};
+    const genredData = {};
     for (let i = 0; i < values.length; i++) {
-        g[values[i].toLowerCase()] = keys[i];
+        genredData[values[i].toLowerCase()] = keys[i];
     }
 
     let selectedMovies = allMovies.filter(function (item) {
@@ -70,27 +73,29 @@ async function init(event) {
         const query = queryData.toLowerCase();
         const title = item.title.toLowerCase();
         //queryData is genres or not
-        // item.genres = item.genre_ids.map(id=>genres[id]).join(",")
-        if (g[query]) {
+       
+        if (genredData[query]) {
             //querydata is genres
             //get genreid
-            const selectedGenreId = g[query];
+            const selectedGenreId = genredData[query];
             //movies with genreid
             return item.genre_ids.includes(parseInt(selectedGenreId));
         } else {
             return title.startsWith(query) && parseFloat(item.vote_average) >= popularity;
         }
     });
+    //Show Total Result Score
     let searchCount = document.getElementById("search-result-count");
     searchCount.innerHTML = `Results Count - ${selectedMovies.length}`
     document.getElementById("search-items").innerHTML = '';
-
+    //Show Search Card
+   
     setTimeout(() => {
         for (let values of selectedMovies) {
             let elementData = document.createElement("movie-card");
             elementData.innerHTML = ` ${values.backdrop_path ? `<img slot="movie-image" src="${resolveImagePath(values.backdrop_path)}"  alt="movie-image" class="card-image"
-       title="movie-image" />` : `<img slot="movie-image" src="assets/images/320x170.png"  alt="movie-image" class="card-image"
-       title="movie-image" />`}
+                   title="movie-image" />` : `<img slot="movie-image" src="assets/images/320x170.png"  alt="movie-image" class="card-image"
+                   title="movie-image" />`}
                   <span slot="movie-title">${values.title}</span>
                   ${values.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart red card-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart card-heart"></i>'}
                   <span slot="movie-genres">${values.genre_ids.map(id => genres[id])}</span>
@@ -100,15 +105,16 @@ async function init(event) {
 
         }
 
-    }, 1000);
+    }, 100);
 
 
 }
+//Add Events
 const form = document.getElementById('search');
 form.addEventListener("submit", init);
 const range = document.querySelector('input[type=range]');
 range.addEventListener("change", init);
-const userInput = document.querySelector('#link_id');
+const userInput = document.querySelector('#search-value');
 userInput.addEventListener("keyup", init);
 
 

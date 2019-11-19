@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    /* justify-content: space-between; */
 }
 .card-serach__field{
     padding: 6px;
@@ -27,58 +27,84 @@
     display: flex;
     margin-top: 4em;
     margin-bottom: 4em;
+    flex-direction: row
 }
 .search-result__form{
     width: 50%;
 }
 
 .search-rating__form{
-  width: 30%;
+    width: 30%;
 }
 
 .search__range {
     position: relative;
 }
-  .search-range__input {
+.search-range__input {
     width: 100%;
-    -webkit-appearance: none;
-  }
-  .search-range__input::-webkit-slider-runnable-track {
+   -webkit-appearance: none;
+}
+.search-range__input::-webkit-slider-runnable-track {
     background: #ccc;
-  }
-  .search-range__input::-moz-range-thumb {
+}
+.search-range__input::-moz-range-thumb {
     background: #ccc;
-  }
-  .search-range__input::-ms-track {
+}
+.search-range__input::-ms-track {
     background: transparent;
-  }
-  .search-range__input::-ms-fill-lower {
+ }
+.search-range__input::-ms-fill-lower {
     background: #e1e1e1;
     border-radius: 10px;
   }
-  .search-range__input::-ms-fill-upper {
+.search-range__input::-ms-fill-upper {
     background: #eee;
   }
-  .search-range__list {
+.search-range__list {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.range__list__opt:before {
+  content: "";
+  display: block;
+  width: 0;
+  height: auto;
+  padding-left: 3px;
+  text-indent: 0;
+}
+
+input[type=range]{
+  width: 100%;
+  width: 100%;
+  -webkit-appearance: none;
+  appearance: none;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+@media only screen and (max-width:767px){
+  .search-result{
     display: flex;
-    justify-content: space-between;
-    height: auto;
-    overflow: hidden;
-    margin-top: 6px;
+    margin-top: 4em;
+    margin-bottom: 4em;
+    flex-direction: column;
   }
-  .range__list__opt:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: auto;
-    padding-left: 3px;
-    text-indent: 0;
+  .search-result__form{
+    width: 100%;
+    margin-bottom: 2em;
+  }
+  .search-rating__form{
+    width: 80%;
   }
 
-  input[type=range]{
-    width: 100%;
-  }
-  
+}
+
 
 
 

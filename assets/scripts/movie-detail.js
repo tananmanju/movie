@@ -1,4 +1,3 @@
-
 import { loadTemplate, getTemplate } from "./common.js";
 loadTemplate("movie-detail", "/views/movie-detail.html")
 customElements.define("movie-detail",
@@ -20,7 +19,6 @@ customElements.define("movie-detail",
                 this.shadowRoot.querySelector(".fa-heart").classList.add('red');
             }
 
-
             const favButton = this.shadowRoot.querySelector(".movie-banner__favorite");
             favButton.addEventListener('click', () => {
                 const currentIndex = favMovies.indexOf(this.movie.id);
@@ -32,7 +30,7 @@ customElements.define("movie-detail",
                     favMovies.push(this.movie.id);
                     this.shadowRoot.querySelector(".fa-heart").classList.add('red');
                 }
-                localStorage.setItem('favMovies',JSON.stringify(favMovies));
+                localStorage.setItem('favMovies', JSON.stringify(favMovies));
             });
         }
     }

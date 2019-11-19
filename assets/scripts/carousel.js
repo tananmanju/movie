@@ -21,7 +21,7 @@ class MovieCarousel extends HTMLElement {
               title="movie-image" />`}
                          <span slot="movie-title">${movie.title}</span>
                          ${movie.popularity > 150 ? '<i slot="movie-popularity" class="fa fa-heart red card-heart"></i>' : '<i slot="movie-popularity" class="fa fa-heart card-heart"></i>'}
-                         <span slot="movie-genres">${movie.genre_ids.map(id => this.genres[id])}</span>
+                         <span slot="movie-genres">${movie.genre_ids.slice(0, 6).map(id => this.genres[id]).join(",  ")}</span>
                          <movie-rating rating="${movie.vote_average}" slot="movie-rating"></movie-rating>
                          <a slot="movie-show-more" href="/movie.html?id=${movie.id}" class="show-more">Show more</a>
                      </movie-card>`

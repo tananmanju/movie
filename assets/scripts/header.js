@@ -1,7 +1,7 @@
-function activeLink(){ 
+(function(){ 
 
     console.log("activelink") 
-    let header = document.getElementsByTagName("header");
+    let header = document.getElementsByTagName("header")[0];
     console.log(header);
     let btns = header.getElementsByClassName("navbar__list");
     for (var i = 0; i < btns.length; i++) {
@@ -11,9 +11,7 @@ function activeLink(){
             var current = document.getElementsByClassName("active");
             current[0].className = current[0].className.replace(" active", "");
             this.className += " active";
-            
         });
     }
-}
-activeLink();
+})();
 

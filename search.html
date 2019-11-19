@@ -2,159 +2,67 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <!-- <base href="/tw-movie/training/"/> -->
-    <title>Movie App</title>
-    <link rel="stylesheet" href="assets/styles/index.css" />
-    <!-- <link rel="import" id="card" href="card/card.html">
-    <link rel="import" id="quick-view" href="views/quik-view.html"> -->
-    <link rel="stylesheet" href="assets/styles/search.css">
-    <link rel="import" id="header" href="views/header.html">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <!-- <base href="/tw-movie/training/"/> -->
+  <title>Movie App</title>
+  <link rel="stylesheet" href="assets/styles/index.css" />
+  <link rel="stylesheet" href="assets/styles/search.css">
+  <link rel="import" id="header" href="views/header.html">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
-    <section id="header-section"></section>
-    <main class="container">
-        <section class="search-result">
-            <div class="search-result__form">
-                <form name="search" id="search" class="card-serach__form">
-                    <input type='text' name="search_term" autocomplete="off" id='link_id' value=""
-                        class="card-serach__field" placeholder="Search for movies,actors,genre..">
+  <section id="header-section"></section>
+  <main class="container">
+    <section class="search-result">
+      <div class="search-result__form">
+        <form name="search" id="search" class="card-serach__form">
+          <input type='text' name="search_term" autocomplete="off" id='search-value' value="" class="card-serach__field"
+            placeholder="Search for movies,actors,genre..">
 
-                    <button type='submit' id='link_str' value='Search' class="card-search__button"> <i
-                            class="fa fa-search search__font-size" aria-hidden="true"></i> </button>
-                </form>
-            </div>
-            <div class="search__range search-rating__form">
-                <label for="popularity">
-                    <b>Movie Rating</b>
-                        <input type="range" value="5" min="1" max="10" list="number"
-                        id='popularity' />
-                </label>
-            
-                <datalist class="search-range__list" id="number">
-                    <option class="range__op">1</option>
-                    <option class="range__opt">2</option>
-                    <option class="range__opt">3</option>
-                    <option class="range__opt">4</option>
-                    <option class="range__opt">5</option>
-                    <option class="range__opt">6</option>
-                    <option class="range__opt">7</option>
-                    <option class="range__opt">8</option>
-                    <option class="range__opt">9</option>
-                    <option class="range__opt">10</option>
-                </datalist>
-            </div>
-        </section>
+          <button type='submit' id='search-button' value='Search' class="card-search__button">
+            <i class="fa fa-search search__font-size" aria-hidden="true"></i>
+          </button>
+        </form>
+      </div>
+      <div class="search__range search-rating__form">
+        <label for="popularity">
+          <b>Movie Rating</b>
+          <input type="range" value="5" min="1" max="10" list="number" id='popularity' />
+        </label>
 
-        <section>
-            <h2 class="search-result__heading" id="search-result-count">
-                Results
-            </h2>
-        </section>
+        <datalist class="search-range__list" id="number">
+          <option class="range__op">1</option>
+          <option class="range__opt">2</option>
+          <option class="range__opt">3</option>
+          <option class="range__opt">4</option>
+          <option class="range__opt">5</option>
+          <option class="range__opt">6</option>
+          <option class="range__opt">7</option>
+          <option class="range__opt">8</option>
+          <option class="range__opt">9</option>
+          <option class="range__opt">10</option>
+        </datalist>
+      </div>
+    </section>
 
-        <section id="search-items" class="search__card">
+    <section>
+      <h2 class="search-result__heading" id="search-result-count">
 
-        </section>
+      </h2>
+    </section>
 
-    </main>
+    <section id="search-items" class="search__card">
 
-    <!-- <script type="module" src="index.js"></script> -->
-    <!-- <script type="module" src="scripts/modal.js"></script> -->
-    <script type="module" src="./assets/scripts/search.js"></script>
+    </section>
 
-    <!-- <style>
-        input[type=range] {
-  -webkit-appearance: none;
-  margin: 18px 0;
-  width: 100%;
-}
-input[type=range]:focus {
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -14px;
-}
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #367ebd;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 1.3px;
-  border: 0.2px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 8.4px;
-  cursor: pointer;
-  animate: 0.2s;
-  background: transparent;
-  border-color: transparent;
-  border-width: 16px 0;
-  color: transparent;
-}
-input[type=range]::-ms-fill-lower {
-  background: #2a6495;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-fill-upper {
-  background: #3071a9;
-  border: 0.2px solid #010101;
-  border-radius: 2.6px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-input[type=range]::-ms-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 36px;
-  width: 16px;
-  border-radius: 3px;
-  background: #ffffff;
-  cursor: pointer;
-}
-input[type=range]:focus::-ms-fill-lower {
-  background: #3071a9;
-}
-input[type=range]:focus::-ms-fill-upper {
-  background: #367ebd;
-}
-    </style> -->
+  </main>
+
+
+  <script type="module" src="./assets/scripts/search.js"></script>
+
+
 </body>
 
 </html>
